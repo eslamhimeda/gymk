@@ -1182,6 +1182,55 @@
   .stp-phase{text-align:center; font-size:1rem; min-height:1.5em}
   .stp-btns{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
   .stp-btns .btn{flex:1}
+
+  /* ============================================================
+     NO SIDEWAYS SLIDING — the inner tab strips used to be one
+     long row (overflow-x:auto, fixed-width buttons) wider than
+     the phone, so the tabs slid right and left under the finger.
+     Now every tab/chip strip WRAPS inside the screen width and
+     sits CENTRED, its labels balanced across the phone screen,
+     and the page itself can never be dragged sideways.
+     ============================================================ */
+  html, body{overflow-x:hidden; overflow-x:clip; overscroll-behavior-x:none}
+  #intro .intro-ui, .sheet .panel, #modePicker, #warmupGate{overflow-x:hidden; overflow-x:clip}
+  /* the two sliding strips become still, wrapped, centred rows */
+  .filters, .toolbar-card .filters, .post-toc{
+    overflow-x:visible; overflow-x:clip;
+    flex-wrap:wrap; justify-content:center;
+    scrollbar-width:none;
+  }
+  .filters button, .post-toc button{
+    flex:0 1 auto; min-width:0; max-width:100%;
+    text-align:center; justify-content:center;
+    white-space:normal; text-wrap:balance; line-height:1.45;
+  }
+  /* the chip/filter rows that already wrapped get centred too */
+  .cf-filters, .supp-filters, .assess-chips, #stLibFilters{justify-content:center}
+  .cf-filters button, .supp-filters button, .assess-chip, #stLibFilters button{text-align:center}
+  /* top nav tabs: equal shares of the screen, label dead-centre */
+  nav.topnav button{justify-content:center; text-align:center; line-height:1.3; text-wrap:balance}
+  /* fixed tab bars: labels centred in their buttons */
+  .tier-tabs button, .anim-views button, .hw-toggle button{text-align:center}
+  @media (max-width:560px){
+    /* tabs share the phone width evenly instead of sliding:
+       exercise filters ~3 per row, posture index ~2 per row */
+    .filters button{flex:1 1 28%}
+    .post-toc button{flex:1 1 42%}
+    /* long English exercise names wrap inside their row instead
+       of pushing the whole row off the side of the screen */
+    .ex-row .ex-en, .st-card .ex-en{white-space:normal}
+    /* headings and their subtitles balanced & centred on the
+       phone screen (side accent bar becomes a centred underline) */
+    .sec-title, .view > .sec-title:not(:first-child){
+      text-align:center; border-inline-start:none; padding-inline-start:0;
+    }
+    .sec-title::after{content:""; display:block; width:54px; height:4px; border-radius:2px; background:var(--accent); margin:9px auto 0}
+    .sec-sub{text-align:center; text-wrap:balance}
+    .bend-sec-title{justify-content:center; text-align:center}
+    .bend-sec-title::before{display:none}
+    .mode-inner h2, .mode-inner > p{text-align:center; text-wrap:balance}
+    .comic-line{text-align:center}
+  }
 </style>
 </head>
 <body>
