@@ -175,7 +175,7 @@
   .stat{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px 10px; text-align:center; box-shadow:var(--shadow)}
   .stat b{display:block; font-size:1.55rem; font-weight:900; color:var(--accent); line-height:1.2}
   .stat span{font-size:.77rem; color:var(--ink2); font-weight:700}
-  .btn{background:var(--accent); color:#fff; border:none; border-radius:14px; padding:12px 20px; font-weight:900; font-size:1rem; min-height:48px; display:inline-flex; align-items:center; justify-content:center; gap:8px}
+  .btn{background:var(--accent); color:#fff; border:none; border-radius:999px; padding:12px 22px; font-weight:900; font-size:1rem; min-height:48px; display:inline-flex; align-items:center; justify-content:center; gap:8px}
   @media (prefers-color-scheme: dark){ .btn{color:#241703} }
   .btn:active{transform:scale(.98)}
   .btn.ghost{background:var(--card); color:var(--ink); border:1px solid var(--line); box-shadow:none}
@@ -214,7 +214,7 @@
   .ex-row .nm{font-weight:800; font-size:.89rem}
   .ex-row .dt{color:var(--ink2); font-size:.76rem; font-weight:700}
   .ex-row .acts{margin-inline-start:auto; display:flex; gap:6px; flex:none}
-  .mini-btn{background:var(--card); border:1px solid var(--line); color:var(--ink); border-radius:10px; padding:5px 11px; font-weight:800; font-size:.8rem; min-height:36px}
+  .mini-btn{background:var(--card); border:1px solid var(--line); color:var(--ink); border-radius:999px; padding:5px 13px; font-weight:800; font-size:.8rem; min-height:36px}
   .mini-btn.acc{background:var(--accent); border-color:var(--accent); color:#fff}
   @media (prefers-color-scheme: dark){ .mini-btn.acc{color:#241703} }
 
@@ -264,11 +264,20 @@
   .ss-pair-head b{font-size:.92rem}
   .ss-badge{background:#7d5ba6; color:#fff; font-size:.72rem; font-weight:900; padding:3px 9px; border-radius:99px}
   .ss-rest-note{font-size:.8rem; color:var(--ink2); font-weight:700}
-  .ss-ab{flex:none; width:34px; height:34px; border-radius:9px; background:#7d5ba6; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.8rem}
+  .ss-ab{flex:none; width:34px; height:34px; border-radius:50%; background:#7d5ba6; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.8rem}
   .ss-ab.b{background:#2f7fc1}
   .ss-link-note{text-align:center; font-size:.8rem; font-weight:900; color:#7d5ba6; padding:2px 0 7px}
+  .ss-rest-bar{margin:8px 0 6px; text-align:center; font-size:.85rem; font-weight:800; color:var(--ink); background:color-mix(in srgb, #7d5ba6 12%, var(--card)); border:1.5px dashed color-mix(in srgb, #7d5ba6 55%, var(--card)); border-radius:999px; padding:7px 12px}
+  .ss-rest-bar b{color:#7d5ba6; font-weight:900}
   .wk-ss-head{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:16px 0 2px; padding:9px 11px; border-radius:12px; background:color-mix(in srgb, #7d5ba6 10%, var(--card)); border:1px solid color-mix(in srgb, #7d5ba6 38%, var(--card))}
   .wk-ss-head b{font-size:.94rem}
+  /* (legacy classes kept for the day-page superset pairs) */
+  .ss-split-wrap{border:1.5px solid #7d5ba6; border-radius:16px; padding:14px; margin-bottom:16px; background:color-mix(in srgb, #7d5ba6 6%, var(--card))}
+  .ss-split-wrap>h3{margin:0 0 4px; font-size:1.15rem; font-weight:900; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+  .ss-split-wrap>p{margin:0 0 12px}
+  .ss-split-day{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:12px}
+  .ss-split-day:last-child{margin-bottom:0}
+  .ss-split-day h4{margin:0 0 10px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:1.02rem; font-weight:900}
   .rest-day{border:1.5px dashed var(--accent); border-radius:14px; padding:14px; text-align:center; background:var(--accent-soft); margin-bottom:14px}
   .rest-day b{font-size:1.05rem}
   .vip-sec{margin-top:16px; border-top:1px dashed var(--line); padding-top:14px}
@@ -1159,6 +1168,17 @@
   .st-block.wu .st-block-badge{background:var(--accent)}
   .st-block.cd .st-block-badge{background:var(--green)}
   .st-row{background:color-mix(in srgb, var(--card) 82%, transparent)}
+  /* Post-workout mobility flow — Instagram reel embed card */
+  .ig-frame{position:relative; width:100%; max-width:420px; margin:0 auto; height:min(780px,198vw); background:var(--card2); border:1px solid var(--line); border-radius:16px; overflow:hidden}
+  .ig-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0; display:block}
+  /* Exercise-sheet Instagram note: names the required exercise when
+     the reel holds more than one movement, or flags a variant */
+  .ig-note{max-width:520px; margin:10px auto 0; background:color-mix(in srgb, var(--accent) 8%, var(--card)); border:1px solid color-mix(in srgb, var(--accent) 40%, var(--card)); border-radius:12px; padding:9px 12px; font-size:.9rem; line-height:1.6; text-align:center}
+  .flow-cols{display:grid; gap:16px}
+  @media(min-width:760px){ .flow-cols{grid-template-columns:420px 1fr; align-items:start} }
+  .flow-moves{list-style:none; margin:10px 0 0; padding:0; display:grid; gap:7px}
+  .flow-moves li{display:flex; gap:9px; align-items:flex-start; background:var(--card2); border:1px solid var(--line); border-radius:12px; padding:8px 11px; font-size:.9rem; line-height:1.5}
+  .flow-moves .post-ex-num{margin-top:1px}
   /* Guided stretch timer player — full-screen calm overlay */
   .stplayer{position:fixed; inset:0; z-index:300; background:rgba(18,15,8,.58); display:flex; align-items:flex-end; justify-content:center}
   .stplayer[hidden]{display:none}
@@ -1273,10 +1293,10 @@
     <p>اختار نوع تمرينك النهاردة — <b>اللي هتختاره هو بس اللي هيفتح، ومش هيظهر معاه أي قسم تاني.</b></p>
     <button type="button" id="modePickerBack" class="mode-back" hidden>→ رجوع لتمرينك الحالي من غير ما تغيّر حاجة</button>
     <div class="mode-grid">
-      <button class="mode-card hero-mode" type="button" data-mode="hero" aria-label="Hero Mode — وضع الأبطال: تفعيل السوبر سيت الشامل لكل التمارين">
+      <button class="mode-card hero-mode" type="button" data-mode="hero" aria-label="Hero Mode — وضع الأبطال: السوبر سيت شغّال في كل الأنظمة، كل زوج A1 + A2 من غير راحة والراحة بعد كل زوج">
         <span class="hero-circ" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg></span>
         <b>وضع الأبطال</b>
-        <span class="mode-dt"><span class="en">HERO MODE</span> · سوبر سيت شامل A1 + A2</span>
+        <span class="mode-dt"><span class="en">HERO MODE</span> · السوبر سيت شغّال جوه الأنظمة نفسها: كل زوج A1 + A2 من غير راحة، والراحة 90–120 ثانية بعد كل زوج</span>
         <span class="hero-star" aria-hidden="true">★</span>
       </button>
       <button class="mode-card" type="button" data-mode="gym">
@@ -1306,6 +1326,10 @@
       <button class="mode-card" type="button" data-mode="man">
         <span class="mode-ic" style="background:color-mix(in srgb, #8a6d1f 14%, var(--card)); color:#8a6d1f; border-color:#8a6d1f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><path d="M12 8v5.5M12 13.5 8.8 21M12 13.5 15.2 21M7.2 10.8 12 9.6l4.8 1.2"/></svg></span>
         <b>Man Section</b><span class="mode-dt">كيجل وقاع الحوض للرجال</span>
+      </button>
+      <button class="mode-card" type="button" data-mode="mobility">
+        <span class="mode-ic" style="background:color-mix(in srgb, #5f9e6e 14%, var(--card)); color:#5f9e6e; border-color:#5f9e6e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.6" r="1.9"/><path d="M5 6.5 12 9.8 19 6.5M12 9.8v3M12 12.8 7.2 20.5M12 12.8l4.8 7.7"/></svg></span>
+        <b>ريح جسمك وحسن حركتك</b><span class="mode-dt">فلو موبيليتي بعد التمرين — 9 حركات في 5–10 دقايق</span>
       </button>
     </div>
   </div>
@@ -1357,6 +1381,9 @@
     <button data-nav="man" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><path d="M12 8v5.5M12 13.5 8.8 21M12 13.5 15.2 21M7.2 10.8 12 9.6l4.8 1.2"/></svg>
       Man Section</button>
+    <button data-nav="mobility" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.6" r="1.9"/><path d="M5 6.5 12 9.8 19 6.5M12 9.8v3M12 12.8 7.2 20.5M12 12.8l4.8 7.7"/></svg>
+      ريح جسمك</button>
     <button data-nav="workout" type="button">
       <span class="bdg" id="wkBadge">!</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3.5 6l1 1 2-2M3.5 12l1 1 2-2M3.5 18l1 1 2-2"/></svg>
@@ -1472,7 +1499,7 @@
   <!-- ================= SYSTEMS ================= -->
   <section class="view" id="view-systems">
     <h2 class="sec-title">الأنظمة التدريبية</h2>
-    <p class="sec-sub">كل نظام مكتوب معاه عدد الأيام والعضلات المستهدفة في كل يوم. اختار يوم ودوس «ابدأ» عشان تسجّل تمرينتك.</p>
+    <p class="sec-sub">كل نظام مكتوب معاه عدد الأيام والعضلات المستهدفة في كل يوم. دوس «ابدأ اليوم كله» لو عايز تلعب اليوم كامل، أو دوس «سجّل الوزن والعدّات» على أي تمرين لوحده وهتفتح لك خانات الوزن والعدّات على طول — بأي ترتيب يعجبك، ومن غير ما تفتح الإحماء ولا باقي تمارين اليوم.</p>
 
     <div id="systemsList"></div>
   </section>
@@ -1503,6 +1530,34 @@
     <h3 class="bend-sec-title">روتينات إطالات جاهزة <span class="term-en">Stretch Routines</span></h3>
     <p class="sec-sub" style="margin-top:0">روتينات قصيرة جاهزة بالمؤقّت الموجّه: اختار الروتين المناسب لوقتك وهدفك، والمؤقّت هيمشّي معاك إطالة إطالة خطوة بخطوة — بالرسم التوضيحي والعدّاد والفوائد والتحذيرات.</p>
     <div class="rout-grid" id="routGrid"></div>
+    <h3 class="bend-sec-title">فلو موبيليتي بعد التمرين <span class="term-en">Post-Workout Mobility Flow</span></h3>
+    <p class="sec-sub" style="margin-top:0">فلو تهدئة واحد جاهز بعد التمرينة: 9 حركات موبيليتي بالترتيب في فيديو قصير (حوالي 25–30 ثانية)، وكابشن الفيديو بيوصي تخصّص 5–10 دقايق موبيليتي بعد التمرين — امشِ على الحركات بنفس الترتيب واثبت في كل حركة على قد ما جسمك مرتاح.</p>
+    <div class="card" style="margin-bottom:14px">
+      <div class="flow-cols">
+        <div>
+          <div class="ig-frame">
+            <iframe src="https://www.instagram.com/reel/DfUMVJZylcx/embed/captioned/" title="Post-Workout Mobility Flow — ريل إنستجرام" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer" loading="lazy" scrolling="no" allowfullscreen></iframe>
+          </div>
+          <a class="yt-open" href="https://www.instagram.com/reel/DfUMVJZylcx/" target="_blank" rel="noopener">افتح الريل على إنستجرام</a>
+          <p class="small muted" style="text-align:center; margin:8px 0 0">الفيديو من <span dir="ltr">@mohamed.alaa21</span> — Muhammed Aladdin | Calisthenics coach</p>
+        </div>
+        <div>
+          <b style="font-weight:900">الحركات بالترتيب — 9 حركات:</b>
+          <ol class="flow-moves">
+            <li><span class="post-ex-num">1</span><span>وضعية الطفل <span class="ex-en">Child's Pose</span></span></li>
+            <li><span class="post-ex-num">2</span><span>انحناء أمامي وانت قاعد (بايك) <span class="ex-en">Seated Forward Fold / Pike</span></span></li>
+            <li><span class="post-ex-num">3</span><span>فتح الرجلين واسع وانت قاعد (بانكيك) <span class="ex-en">Seated Wide Straddle / Pancake</span></span></li>
+            <li><span class="post-ex-num">4</span><span>الفراشة <span class="ex-en">Butterfly</span></span></li>
+            <li><span class="post-ex-num">5</span><span>ركوع واسع (قريب من وضعية الضفدع) <span class="ex-en">Kneeling Wide / Frog-like</span></span></li>
+            <li><span class="post-ex-num">6</span><span>إطالة الرقبة الجانبية من الركوع الطويل <span class="ex-en">Tall Kneeling Neck Side Stretch</span></span></li>
+            <li><span class="post-ex-num">7</span><span>إطالة الباند فوق الراس من الركوع الطويل <span class="ex-en">Tall Kneeling Overhead Band Stretch</span></span></li>
+            <li><span class="post-ex-num">8</span><span>انحناء أمامي وانت واقف <span class="ex-en">Standing Forward Fold</span></span></li>
+            <li><span class="post-ex-num">9</span><span>مفصلة واقفة بركب مثنية مع نقل الوزن <span class="ex-en">Standing Bent-Knee Hinge / Weight Shift</span></span></li>
+          </ol>
+          <p class="small" style="margin:12px 0 0"><b>إزاي تنفّذه:</b> شغّل الفيديو وامشِ وراه حركة حركة بنفس الترتيب، وكرر الفلو أو اثبت أطول في كل حركة لحد ما توصّل لمجموع 5–10 دقايق تهدئة. الحركة هادية ومن غير زق — أي ألم حاد يبقى وقّف وقلّل المدى.</p>
+        </div>
+      </div>
+    </div>
     <h3 class="bend-sec-title">مكتبة الإطالات <span class="term-en">Stretch Library</span></h3>
     <p class="sec-sub" style="margin-top:0">كل إطالة برسمها التوضيحي وفايدتها وتحذيرها — افتح شرحها الكامل أو شغّل المؤقّت الموجّه على طول. والإطالات دي نفسها بتظهر لك تلقائيًا كإحماء قبل كل تمرينة وتهدئة بعدها حسب العضلات اللي هتشتغل.</p>
     <div id="stLibFilters" style="margin-bottom:12px"></div>
@@ -1628,6 +1683,38 @@
       <button class="btn block" data-stimer-run="kegel_basic,kegel_quick,kegel_hold,kegel_bridge" type="button" style="margin-top:12px">ابدأ جلسة الكيجل كلها بالمؤقّت الموجّه</button>
     </div>
     <div class="st-grid" id="manGrid"></div>
+  </section>
+
+  <!-- ================= MOBILITY — ريح جسمك وحسن حركتك: فلو الموبيليتي بعد التمرين ================= -->
+  <section class="view" id="view-mobility">
+    <h2 class="sec-title">ريح جسمك وحسن حركتك</h2>
+    <p class="sec-sub">نظام مستقل لفلو الموبيليتي بعد التمرين: 9 حركات بالترتيب في فيديو قصير (حوالي 25–30 ثانية). خصّص 5–10 دقايق موبيليتي بعد تمرينتك — دي توصية كابشن الفيديو نفسه — وامشِ على الحركات بنفس الترتيب واثبت في كل حركة على قد ما جسمك مرتاح.</p>
+    <div class="card" style="margin-bottom:14px">
+      <div class="flow-cols">
+        <div>
+          <div class="ig-frame">
+            <iframe src="https://www.instagram.com/reel/DfUMVJZylcx/embed/captioned/" title="ريح جسمك وحسن حركتك — فلو موبيليتي بعد التمرين، ريل إنستجرام" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer" loading="lazy" scrolling="no" allowfullscreen></iframe>
+          </div>
+          <a class="yt-open" href="https://www.instagram.com/reel/DfUMVJZylcx/" target="_blank" rel="noopener">افتح الريل على إنستجرام</a>
+          <p class="small muted" style="text-align:center; margin:8px 0 0">الفيديو من <span dir="ltr">@mohamed.alaa21</span> — Muhammed Aladdin | Calisthenics coach</p>
+        </div>
+        <div>
+          <b style="font-weight:900">الحركات بالترتيب — 9 حركات:</b>
+          <ol class="flow-moves">
+            <li><span class="post-ex-num">1</span><span>وضعية الطفل <span class="ex-en">Child's Pose</span></span></li>
+            <li><span class="post-ex-num">2</span><span>انحناء أمامي وانت قاعد (بايك) <span class="ex-en">Seated Forward Fold / Pike</span></span></li>
+            <li><span class="post-ex-num">3</span><span>فتح الرجلين واسع وانت قاعد (بانكيك) <span class="ex-en">Seated Wide Straddle / Pancake</span></span></li>
+            <li><span class="post-ex-num">4</span><span>الفراشة <span class="ex-en">Butterfly</span></span></li>
+            <li><span class="post-ex-num">5</span><span>ركوع واسع (قريب من وضعية الضفدع) <span class="ex-en">Kneeling Wide / Frog-like</span></span></li>
+            <li><span class="post-ex-num">6</span><span>إطالة الرقبة الجانبية من الركوع الطويل <span class="ex-en">Tall Kneeling Neck Side Stretch</span></span></li>
+            <li><span class="post-ex-num">7</span><span>إطالة الباند فوق الراس من الركوع الطويل <span class="ex-en">Tall Kneeling Overhead Band Stretch</span></span></li>
+            <li><span class="post-ex-num">8</span><span>انحناء أمامي وانت واقف <span class="ex-en">Standing Forward Fold</span></span></li>
+            <li><span class="post-ex-num">9</span><span>مفصلة واقفة بركب مثنية مع نقل الوزن <span class="ex-en">Standing Bent-Knee Hinge / Weight Shift</span></span></li>
+          </ol>
+          <p class="small" style="margin:12px 0 0"><b>إزاي تنفّذه:</b> شغّل الفيديو وامشِ وراه حركة حركة بنفس الترتيب، وكرر الفلو أو اثبت أطول في كل حركة لحد ما توصّل لمجموع 5–10 دقايق تهدئة. الحركة هادية ومن غير زق — أي ألم حاد يبقى وقّف وقلّل المدى.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ================= CROSSFIT ================= -->
@@ -1760,97 +1847,97 @@
 "use strict";
 /* ==================== DATA ==================== */
 const EX = [
- {id:"bench", n:"بنش برس بالبار", en:"Barbell Bench Press", cat:"صدر", eq:"بار وبنش", sets:4, reps:"6–10", rest:120, vid:"j7X3hpwCIN0", ar:1, tt:"7617879263605214485", tta:"hazzytrainer", q:"barbell bench press form",
+ {id:"bench", n:"بنش برس بالبار", en:"Barbell Bench Press", cat:"صدر", eq:"بار وبنش", sets:4, reps:"6–10", rest:120, vid:"j7X3hpwCIN0", ig:"DXRQbJgDJLp", iga:"reda_coach", ign:"الريل مقارنة بين برس الجهاز وبنش البار — التمرين المطلوب هنا: بنش برس بالبار", ar:1, tt:"7617879263605214485", tta:"hazzytrainer", q:"barbell bench press form",
   steps:["نام على البنش وعينك تحت البار، وكعبك ثابت على الأرض.","امسك البار أوسع من كتفك بشوية وانزله بتحكم لحد ما يلمس صدرك.","اضغط البار لفوق بقوة وانت بتطلع نفَس، من غير ما تقفل كوعك بعنف."],
   errs:["رفع المؤخرة عن البنش","تنزيل البار على الرقبة بدل الصدر","فتح الكوع 90 درجة (خليه ~45–75°)"]},
- {id:"incline", n:"بنش مائل بالدمبل", en:"Incline Dumbbell Press", cat:"صدر", eq:"دمبل وبنش مائل", sets:3, reps:"8–12", rest:90, vid:"8iPEnn-ltC8", q:"incline dumbbell press form",
+ {id:"incline", n:"بنش مائل بالدمبل", en:"Incline Dumbbell Press", cat:"صدر", eq:"دمبل وبنش مائل", sets:3, reps:"8–12", rest:90, vid:"8iPEnn-ltC8", ig:"DIqxgQXowcR", iga:"reda_coach", q:"incline dumbbell press form",
   steps:["ظبط البنش على ميل 30 درجة وامسك دمبل في كل إيد.","انزل بالدمبل جنب صدرك العلوي بكوع 45 درجة.","اضغط لفوق لحد ما الدمبلين يقربوا من بعض من غير ما يخبطوا."],
   errs:["ميل البنش عالي أوي بيحوّل التمرين لأكتاف","النزول بسرعة من غير تحكم"]},
- {id:"fly", n:"تفتيح بالكابل (فلاي)", en:"Cable Fly", cat:"صدر", eq:"جهاز كابل", sets:3, reps:"12–15", rest:60, vid:"Iwe6AmxVf7o", q:"cable fly chest form",
+ {id:"fly", n:"تفتيح بالكابل (فلاي)", en:"Cable Fly", cat:"صدر", eq:"جهاز كابل", sets:3, reps:"12–15", rest:60, vid:"Iwe6AmxVf7o", ig:"DKZaswDoHl1", iga:"reda_coach", q:"cable fly chest form",
   steps:["واقف في النص وماسك المقابض، خطوة صغيرة لقدام.","افتح دراعك لورا بإحساس شد في الصدر وكوعك مثني شوية وثابت.","قرّب إيديك قدام صدرك واعصر عضلة الصدر ثانية."],
   errs:["ثني ومد الكوع بيحوّله لتمرين ضغط","وزن تقيل بيشد الكتف"]},
- {id:"pushup", n:"ضغط (بوش أب)", en:"Push-Up", cat:"صدر", eq:"وزن الجسم", sets:3, reps:"10–20", rest:60, vid:"PC-16eLvBr0", ar:1, tt:"7565911471645887799", tta:"arielyu.fit", q:"push up proper form",
+ {id:"pushup", n:"ضغط (بوش أب)", en:"Push-Up", cat:"صدر", eq:"وزن الجسم", sets:3, reps:"10–20", rest:60, vid:"PC-16eLvBr0", ig:"DGFy_HFoV_P", iga:"reda_coach", ar:1, tt:"7565911471645887799", tta:"arielyu.fit", q:"push up proper form",
   steps:["إيدك تحت كتفك وجسمك خط مستقيم من راسك لكعبك.","انزل بصدرك لحد ما يقرب من الأرض وكوعك ~45 درجة.","ادفع الأرض واطلع لفوق وانت شادد بطنك ومؤخرتك."],
   errs:["نزول الحوض لتحت (ضهر مقوّس)","نص عدّة من غير نزول كامل"]},
- {id:"deadlift", n:"ديدليفت", en:"Deadlift", cat:"ظهر", eq:"بار", sets:4, reps:"5–8", rest:180, vid:"op9kVnSso6Q", tt:"7613564265810758913", tta:"deltabolic", q:"deadlift proper form",
+ {id:"deadlift", n:"ديدليفت", en:"Deadlift", cat:"ظهر", eq:"بار", sets:4, reps:"5–8", rest:180, vid:"op9kVnSso6Q", ig:"DCw8p3vSTeW", iga:"jeremyethier", tt:"7613564265810758913", tta:"deltabolic", q:"deadlift proper form",
   steps:["البار فوق نص رجلك، امسكه بره ركبك وضهرك مستقيم وصدرك مرفوع.","ادفع الأرض برجلك وخلّي البار ماشي ملزوق في ساقك.","اقف كامل فوق وشد المؤخرة، وبعدين انزل بعكس الحركة."],
   errs:["تقويس الضهر السفلي","شد البار بالضهر بدل دفع الرجلين","رفع الوزن قبل ما تتقن الشكل"]},
- {id:"pullup", n:"عقلة", en:"Pull-Up", cat:"ظهر", eq:"بار عقلة", sets:4, reps:"قدر ما تقدر", rest:120, vid:"5j2XeUzsc8g", ar:1, tt:"7398311458833992966", tta:"deltabolic", q:"pull up proper form",
+ {id:"pullup", n:"عقلة", en:"Pull-Up", cat:"ظهر", eq:"بار عقلة", sets:4, reps:"قدر ما تقدر", rest:120, vid:"5j2XeUzsc8g", ig:"DVJjBPBgZr9", iga:"jeremyethier", ar:1, tt:"7398311458833992966", tta:"deltabolic", q:"pull up proper form",
   steps:["امسك البار أوسع من كتفك وكفّك لبره، وعلّق جسمك كامل.","اسحب صدرك ناحية البار وانت بتنزل كوعك لتحت ولورا.","انزل ببطء لحد ما دراعك يمتد كامل وكرر."],
   errs:["التأرجح واستخدام الزخم","نص مدى حركة","لو لسه صعبة: ابدأ بالسحب العلوي بالكابل وعدّات سلبية بطيئة"]},
- {id:"pulldown", n:"سحب علوي بالكابل", en:"Lat Pulldown", cat:"ظهر", eq:"جهاز سحب", sets:3, reps:"10–12", rest:90, vid:"CAwf7n6Luuc", tt:"7602436025993989393", tta:"deltabolic", q:"lat pulldown form",
+ {id:"pulldown", n:"سحب علوي بالكابل", en:"Lat Pulldown", cat:"ظهر", eq:"جهاز سحب", sets:3, reps:"10–12", rest:90, vid:"CAwf7n6Luuc", ig:"DFFciTJodmY", iga:"reda_coach", tt:"7602436025993989393", tta:"deltabolic", q:"lat pulldown form",
   steps:["اقعد وثبّت ركبك تحت السند وامسك البار واسع.","اسحب البار لصدرك العلوي وانت مائل لورا بسيط.","ارجع بالبار لفوق ببطء لحد إحساس الشد الكامل في الضهر."],
   errs:["السحب ورا الرقبة","الميل لورا جامد واستخدام الجسم كله"]},
- {id:"bbrow", n:"تجديف بالبار", en:"Barbell Row", cat:"ظهر", eq:"بار", sets:4, reps:"8–12", rest:90, vid:"vT2GjY_Umpw", tt:"7610989043110743297", tta:"deltabolic", q:"barbell row form",
+ {id:"bbrow", n:"تجديف بالبار", en:"Barbell Row", cat:"ظهر", eq:"بار", sets:4, reps:"8–12", rest:90, vid:"vT2GjY_Umpw", ig:"DJwKesNIi0i", iga:"reda_coach", tt:"7610989043110743297", tta:"deltabolic", q:"barbell row form",
   steps:["ميل بجذعك ~45 درجة وضهرك مستقيم وركبك مثنية شوية.","اسحب البار لبطنك السفلية واعصر لوحين كتفك.","انزل بالبار بتحكم من غير ما تقوّس ضهرك."],
   errs:["الوقوف أثناء السحب واستخدام الزخم","تقويس الضهر"]},
- {id:"seatedrow", n:"سحب جالس بالكابل", en:"Seated Cable Row", cat:"ظهر", eq:"جهاز كابل", sets:3, reps:"10–12", rest:90, vid:"GZbfZ033f74", q:"seated cable row form",
+ {id:"seatedrow", n:"سحب جالس بالكابل", en:"Seated Cable Row", cat:"ظهر", eq:"جهاز كابل", sets:3, reps:"10–12", rest:90, vid:"GZbfZ033f74", ig:"DHTLoXyoVuD", iga:"reda_coach", q:"seated cable row form",
   steps:["اقعد وضهرك مستقيم ورجلك على السند وركبك مثنية بسيط.","اسحب المقبض لبطنك وكوعك ماشي جنب جسمك.","اعصر ضهرك ثانية وارجع ببطء."],
   errs:["الميل لقدام ولورا مع كل عدّة","شد الكتف بدل الضهر"]},
- {id:"facepull", n:"فيس بول (سحب للوجه)", en:"Face Pull", cat:"تصحيح وضعيات", eq:"كابل وحبل", sets:3, reps:"15–20", rest:60, vid:"rep-qVOkqgk", q:"face pull form shoulders",
+ {id:"facepull", n:"فيس بول (سحب للوجه)", en:"Face Pull", cat:"تصحيح وضعيات", eq:"كابل وحبل", sets:3, reps:"15–20", rest:60, vid:"rep-qVOkqgk", ig:"DK26ZVgpC8W", iga:"demicstory", ig3:1, ign:"الريل فيه 4 تمارين ضهر وكتف بالكابل بمجسم 3D — التمرين المطلوب هنا: فيس بول (سحب للوجه)", q:"face pull form shoulders",
   steps:["ظبط الكابل على مستوى وشك وامسك الحبل.","اسحب الحبل لوشك وافتح إيديك لبره لحد ما تبقى جنب ودنك.","ارجع ببطء وكرر — التمرين ده أساسي لصحة الكتف وتصحيح الانحناء."],
   errs:["وزن تقيل بيحوّله لتمرين ضهر","نزول الكوع لتحت أثناء السحب"]},
- {id:"ohp", n:"ضغط أكتاف بالدمبل", en:"Dumbbell Shoulder Press", cat:"أكتاف", eq:"دمبل", sets:4, reps:"8–12", rest:90, vid:"qEwKCR5JCog", tt:"7516727302072356101", tta:"deltabolic", q:"dumbbell shoulder press form",
+ {id:"ohp", n:"ضغط أكتاف بالدمبل", en:"Dumbbell Shoulder Press", cat:"أكتاف", eq:"دمبل", sets:4, reps:"8–12", rest:90, vid:"qEwKCR5JCog", ig:"DOD6J_DgJof", iga:"fitonomy.coach", ig3:1, ign:"الريل فيه 4 تمارين كتف بالدمبل بمجسم 3D — التمرين المطلوب هنا: ضغط الأكتاف بالدمبل (ضغط علوي وانت قاعد)", tt:"7516727302072356101", tta:"deltabolic", q:"dumbbell shoulder press form",
   steps:["اقعد وضهرك مسنود والدمبل عند مستوى كتفك.","اضغط لفوق لحد ما دراعك يمتد من غير قفل عنيف.","انزل ببطء لمستوى ودنك وكرر."],
   errs:["تقويس الضهر السفلي — شد بطنك ومؤخرتك","النزول لتحت أوي بيجهد الكتف"]},
- {id:"latraise", n:"رفرفة جانبية", en:"Lateral Raise", cat:"أكتاف", eq:"دمبل", sets:3, reps:"12–15", rest:60, vid:"3VcKaXpzqRo", tt:"7570556618874604818", tta:"deltabolic", q:"lateral raise form",
+ {id:"latraise", n:"رفرفة جانبية", en:"Lateral Raise", cat:"أكتاف", eq:"دمبل", sets:3, reps:"12–15", rest:60, vid:"3VcKaXpzqRo", ig:"DGvIaLWonVH", iga:"reda_coach", tt:"7570556618874604818", tta:"deltabolic", q:"lateral raise form",
   steps:["واقف وماسك دمبل خفيف وكوعك مثني بسيط وثابت.","ارفع دراعك لجنب لحد مستوى الكتف وانت متخيل إنك بتصب مية من كباية.","انزل ببطء — البطء هنا أهم من الوزن."],
   errs:["وزن تقيل وتأرجح بالجسم","الرفع فوق مستوى الكتف"]},
- {id:"reardelt", n:"رفرفة خلفية", en:"Rear Delt Fly", cat:"أكتاف", eq:"دمبل أو كابل", sets:3, reps:"12–15", rest:60, vid:"3gJXpfwg_go", q:"rear delt fly form",
+ {id:"reardelt", n:"رفرفة خلفية", en:"Rear Delt Fly", cat:"أكتاف", eq:"دمبل أو كابل", sets:3, reps:"12–15", rest:60, vid:"3gJXpfwg_go", ig:"DGp_FJGIzJo", iga:"reda_coach", q:"rear delt fly form",
   steps:["ميل بجذعك لقدام وضهرك مستقيم والدمبل تحت صدرك.","افتح دراعك لبره ولورا واعصر كتفك الخلفي.","انزل ببطء وكرر من غير ما تحرك جذعك."],
   errs:["استخدام عضلة الضهر بدل الكتف الخلفي","وزن تقيل وحركة سريعة"]},
- {id:"curl", n:"بايسبس بالبار", en:"Barbell Curl", cat:"ذراعين", eq:"بار", sets:3, reps:"8–12", rest:60, vid:"kwG2ipFRgfo", tt:"7451754414399966470", tta:"deltabolic", q:"barbell bicep curl form",
+ {id:"curl", n:"بايسبس بالبار", en:"Barbell Curl", cat:"ذراعين", eq:"بار", sets:3, reps:"8–12", rest:60, vid:"kwG2ipFRgfo", ig:"DHybDRnoCp6", iga:"reda_coach", tt:"7451754414399966470", tta:"deltabolic", q:"barbell bicep curl form",
   steps:["واقف وماسك البار بعرض كتفك وكوعك ثابت جنب جسمك.","ارفع البار لحد ما البايسبس تنقبض كامل.","انزل ببطء لحد الامتداد الكامل."],
   errs:["تأرجح الجسم والضهر","تحريك الكوع لقدام"]},
- {id:"hammer", n:"بايسبس مطرقة بالدمبل", en:"Hammer Curl", cat:"ذراعين", eq:"دمبل", sets:3, reps:"10–12", rest:60, vid:"zC3nLlEvin4", q:"hammer curl form",
+ {id:"hammer", n:"بايسبس مطرقة بالدمبل", en:"Hammer Curl", cat:"ذراعين", eq:"دمبل", sets:3, reps:"10–12", rest:60, vid:"zC3nLlEvin4", ig:"DHdgUZ4IVlO", iga:"reda_coach", q:"hammer curl form",
   steps:["امسك الدمبل وكفّك مواجه جسمك (زي المطرقة).","ارفع الدمبل من غير ما تلف معصمك وكوعك ثابت.","انزل ببطء وبدّل أو ارفع الاتنين مع بعض."],
   errs:["لف المعصم بيحوّله لكيرل عادي","التأرجح بالكتف"]},
- {id:"pushdown", n:"ترايسبس دفع بالكابل", en:"Triceps Pushdown", cat:"ذراعين", eq:"كابل وحبل", sets:3, reps:"10–15", rest:60, vid:"2-LAMcpzODU", tt:"7592673362367810829", tta:"tylerpath", q:"tricep pushdown form",
+ {id:"pushdown", n:"ترايسبس دفع بالكابل", en:"Triceps Pushdown", cat:"ذراعين", eq:"كابل وحبل", sets:3, reps:"10–15", rest:60, vid:"2-LAMcpzODU", ig:"DIjEfOXIonM", iga:"reda_coach", tt:"7592673362367810829", tta:"tylerpath", q:"tricep pushdown form",
   steps:["واقف قدام الكابل وكوعك ملزوق في جنبك.","ادفع الحبل لتحت لحد ما دراعك يمتد كامل وافتح طرفين الحبل.","ارجع ببطء لحد ما كوعك يوصل 90 درجة بس."],
   errs:["تحريك الكوع لقدام ولورا","استخدام وزن الجسم في الدفع"]},
- {id:"skull", n:"ترايسبس فوق الرأس (سكال كراشر)", en:"Skull Crusher", cat:"ذراعين", eq:"بار EZ أو دمبل", sets:3, reps:"10–12", rest:60, vid:"d_KZxkY_0cM", q:"skull crusher form",
+ {id:"skull", n:"ترايسبس فوق الرأس (سكال كراشر)", en:"Skull Crusher", cat:"ذراعين", eq:"بار EZ أو دمبل", sets:3, reps:"10–12", rest:60, vid:"d_KZxkY_0cM", ig:"DIOT4sHI9cp", iga:"reda_coach", q:"skull crusher form",
   steps:["نام على البنش وماسك البار فوق صدرك ودراعك عمودي.","اثني كوعك بس وانزل بالبار ناحية جبهتك ببطء.","مد دراعك لفوق بقوة الترايسبس."],
   errs:["تحريك الكتف والدراع كله","النزول بسرعة — ده تمرين كوع، خليك متحكم"]},
- {id:"squat", n:"سكوات بالبار", en:"Barbell Squat", cat:"أرجل", eq:"بار وراك", sets:4, reps:"6–10", rest:180, vid:"pKcSlNal-0U", ar:1, tt:"7270603686471290118", tta:"jeremyethier", q:"barbell squat proper form",
+ {id:"squat", n:"سكوات بالبار", en:"Barbell Squat", cat:"أرجل", eq:"بار وراك", sets:4, reps:"6–10", rest:180, vid:"pKcSlNal-0U", ig:"DYmYQlbMyJz", iga:"reda_coach", ign:"الريل بيقارن 4 أنواع سكوات — التمرين المطلوب هنا: سكوات البار الأساسي", ar:1, tt:"7270603686471290118", tta:"jeremyethier", q:"barbell squat proper form",
   steps:["البار على ضهرك العلوي (مش رقبتك)، ورجلك بعرض كتفك.","انزل وانت دافع ركبك لبره وضهرك مستقيم وصدرك مرفوع.","انزل لحد ما فخدك يوازي الأرض واطلع بدفع من كعبك ونص رجلك."],
   errs:["دخول الركب لجوه","رفع الكعب عن الأرض","تقويس الضهر السفلي تحت (Butt Wink) — قلّل العمق لحد ما تظبط المرونة"]},
- {id:"legpress", n:"دفع الأرجل (ليج برس)", en:"Leg Press", cat:"أرجل", eq:"جهاز ليج برس", sets:3, reps:"10–12", rest:120, vid:"fQPCer_jY5I", ar:1, tt:"7569637415707479351", tta:"arielyu.fit", q:"leg press form",
+ {id:"legpress", n:"دفع الأرجل (ليج برس)", en:"Leg Press", cat:"أرجل", eq:"جهاز ليج برس", sets:3, reps:"10–12", rest:120, vid:"fQPCer_jY5I", ig:"DEw2PJjoIlp", iga:"reda_coach", ar:1, tt:"7569637415707479351", tta:"arielyu.fit", q:"leg press form",
   steps:["اقعد ورجلك على اللوحة بعرض كتفك وضهرك ملزوق في الكرسي.","انزل بالوزن لحد ما ركبك توصل ~90 درجة.","ادفع من كعبك ونص رجلك من غير ما تقفل ركبك."],
   errs:["قفل الركبة بعنف فوق","نزول المؤخرة عن الكرسي تحت","رجلين قريبين أوي أو بعاد أوي من غير هدف"]},
- {id:"rdl", n:"ديدليفت روماني", en:"Romanian Deadlift", cat:"أرجل", eq:"بار أو دمبل", sets:3, reps:"8–12", rest:90, vid:"nvwDoLfMKOI", ar:1, tt:"7620146990021643551", tta:"gialayn", q:"romanian deadlift form",
+ {id:"rdl", n:"ديدليفت روماني", en:"Romanian Deadlift", cat:"أرجل", eq:"بار أو دمبل", sets:3, reps:"8–12", rest:90, vid:"nvwDoLfMKOI", ig:"DTjAfeSAOXp", iga:"squat_university", ar:1, tt:"7620146990021643551", tta:"gialayn", q:"romanian deadlift form",
   steps:["امسك البار واقف، ورجّع حوضك لورا كأنك بتقفل باب بمؤخرتك.","انزل بالبار ملزوق في رجلك لحد ما تحس بشد قوي في الخلفية.","ارجع لفوق بشد المؤخرة — الحركة من الحوض مش من الضهر."],
   errs:["تقويس الضهر","ثني الركبة كتير بيحوّله لسكوات","النزول لتحت أوي من غير إحساس بالشد"]},
- {id:"lunge", n:"طعنات (لانجز)", en:"Walking Lunges", cat:"أرجل", eq:"دمبل أو وزن الجسم", sets:3, reps:"10 لكل رجل", rest:90, vid:"QOVaHwm-Q6U", q:"lunges proper form",
+ {id:"lunge", n:"طعنات (لانجز)", en:"Walking Lunges", cat:"أرجل", eq:"دمبل أو وزن الجسم", sets:3, reps:"10 لكل رجل", rest:90, vid:"QOVaHwm-Q6U", ig:"DR7VY4YDysG", iga:"muscleandmotion", ig3:1, ign:"المجسم بيورّي طعنة أمامية ثابتة بالبار — دي نفس حركة الطعنات؛ نفّذها ثابتة أو بالمشي زي ما تحب", q:"lunges proper form",
   steps:["خد خطوة كبيرة لقدام وانزل بجسمك لحد ما الركبة الخلفية تقرب من الأرض.","خلّي جذعك مستقيم وركبتك الأمامية في اتجاه صوابع رجلك.","ادفع بالرجل الأمامية واطلع وبدّل."],
   errs:["ميل الجذع لقدام","الركبة تدخل لجوه","خطوة قصيرة بتضغط على الركبة"]},
- {id:"hipthrust", n:"دفع الحوض (هيب ثرست)", en:"Hip Thrust", cat:"أرجل", eq:"بار وبنش", sets:3, reps:"10–12", rest:90, vid:"xDmFkJxPzeM", q:"hip thrust form glutes",
+ {id:"hipthrust", n:"دفع الحوض (هيب ثرست)", en:"Hip Thrust", cat:"أرجل", eq:"بار وبنش", sets:3, reps:"10–12", rest:90, vid:"xDmFkJxPzeM", ig:"Df47WB1CYtQ", iga:"squat_university", ig3:1, q:"hip thrust form glutes",
   steps:["ضهرك العلوي على البنش والبار على حوضك ورجلك ثابتة على الأرض.","ادفع حوضك لفوق لحد ما جسمك يبقى خط مستقيم واعصر المؤخرة ثانيتين.","انزل ببطء من غير ما تريح الوزن على الأرض."],
   errs:["تقويس الضهر السفلي فوق — دقنك لتحت وبطنك مشدودة","الدفع بصوابع الرجل بدل الكعب"]},
- {id:"calf", n:"سمانة واقف", en:"Standing Calf Raise", cat:"أرجل", eq:"جهاز سمانة أو دمبل", sets:4, reps:"12–15", rest:60, vid:"-M4-G8p8fmc", q:"standing calf raise form",
+ {id:"calf", n:"سمانة واقف", en:"Standing Calf Raise", cat:"أرجل", eq:"جهاز سمانة أو دمبل", sets:4, reps:"12–15", rest:60, vid:"-M4-G8p8fmc", ig:"DDM186vpNXn", iga:"jeffnippard", ign:"الريل تمرينة رجل كاملة فيها كذا تمرين — التمرين المطلوب هنا: سمانة واقف", q:"standing calf raise form",
   steps:["واقف على حافة درجة وصوابع رجلك بس اللي عليها.","انزل بكعبك لتحت لحد إحساس الشد الكامل.","اطلع على صوابعك على قد ما تقدر واقف ثانية فوق."],
   errs:["نص مدى وسرعة — السمانة بتحب المدى الكامل والبطء","ثني الركبة"]},
- {id:"plank", n:"بلانك", en:"Plank", cat:"بطن", eq:"وزن الجسم", sets:3, reps:"30–60 ثانية", rest:60, vid:"IIPF9Lu4hUY", ar:1, tt:"7526206401681640717", tta:"arielyu.fit", q:"plank proper form",
+ {id:"plank", n:"بلانك", en:"Plank", cat:"بطن", eq:"وزن الجسم", sets:3, reps:"30–60 ثانية", rest:60, vid:"IIPF9Lu4hUY", ig:"DaBCRZJhZ0Q", iga:"jeremyethier", ign:"الريل بيورّي نسخة البلانك المتقدمة (RKC) — شدّ جسمك كله وانت ثابت زي الخطوات", ar:1, tt:"7526206401681640717", tta:"arielyu.fit", q:"plank proper form",
   steps:["على كوعك وصوابع رجلك، وجسمك خط مستقيم.","شد بطنك ومؤخرتك ومتخليش حوضك ينزل أو يطلع.","اتنفس طبيعي وحافظ على الوضعية."],
   errs:["نزول الحوض لتحت بيحمّل الضهر","رفع المؤخرة لفوق بيقلل الفايدة"]},
  {id:"deadbug", n:"الحشرة الميتة (ديد باج)", en:"Dead Bug", cat:"بطن", eq:"وزن الجسم", sets:3, reps:"8 لكل جهة", rest:45, vid:"g_BYB0R-4Ws", q:"dead bug exercise form",
   steps:["نام على ضهرك ودراعك لفوق ورجلك 90 درجة، وضهرك السفلي ملزوق في الأرض.","مد دراع ورجل عكس بعض ببطء وانت مطلع نفَس.","ارجع وبدّل — ولو ضهرك انفصل عن الأرض يبقى نزلت أوي."],
   errs:["انفصال الضهر السفلي عن الأرض","السرعة — التمرين ده تحكم مش سرعة"]},
- {id:"cablecrunch", n:"كرنش بالكابل", en:"Cable Crunch", cat:"بطن", eq:"كابل وحبل", sets:3, reps:"12–15", rest:60, vid:"1-O42ARFBag", q:"cable crunch form",
+ {id:"cablecrunch", n:"كرنش بالكابل", en:"Cable Crunch", cat:"بطن", eq:"كابل وحبل", sets:3, reps:"12–15", rest:60, vid:"1-O42ARFBag", ig:"DEK6-EHvbN0", iga:"jeremyethier", q:"cable crunch form",
   steps:["اركع قدام الكابل وماسك الحبل جنب راسك وحوضك ثابت.","انزل بكوعك ناحية ركبك بلف جذعك وشد بطنك.","اطلع ببطء لحد إحساس التمدد."],
   errs:["الحركة من الحوض بدل لف الجذع","شد الرقبة بالحبل"]},
  {id:"woodchop", n:"تقطيع الخشب بالكابل", en:"Cable Woodchopper", cat:"كور", eq:"جهاز كابل", sets:3, reps:"12 لكل جهة", rest:60, vid:"he4IhLc1d5k", q:"cable woodchopper form obliques",
   steps:["ظبط بكرة الكابل فوق مستوى كتفك وركّب يد، واقف جنب الجهاز ورجلك أوسع من عرض كتفك شوية.","امسك اليد بإيديك الاتنين ودراعك مفرود، ولف جسمك واسحب اليد قطريًا لتحت ناحية ركبة الجهة التانية وانت بتلف من وسطك وحوضك.","خلّي رجلك الخلفية تلف على مشطها مع اللفة، وارجع ببطء لنقطة البداية، وكمّل عدّاتك وبدّل الجهة."],
   errs:["السحب بالدراع بدل اللف من الجذع","تثبيت الرجلين ومنع الحوض من اللف — بيحمّل أسفل الظهر","وزن تقيل بيخليك ترمي جسمك بدل ما تلف بتحكم"]},
- {id:"pallof", n:"ضغط بالوف بالكابل (مقاومة الدوران)", en:"Pallof Press", cat:"كور", eq:"جهاز كابل أو باند مقاومة", sets:3, reps:"10 لكل جهة", rest:60, vid:"axgv7H_VQOo", q:"pallof press form core",
+ {id:"pallof", n:"ضغط بالوف بالكابل (مقاومة الدوران)", en:"Pallof Press", cat:"كور", eq:"جهاز كابل أو باند مقاومة", sets:3, reps:"10 لكل جهة", rest:60, vid:"axgv7H_VQOo", ig:"DWeuLSJAjqw", iga:"squat_university", q:"pallof press form core",
   steps:["ظبط الكابل على ارتفاع صدرك واقف جنبه، وامسك اليد بإيديك الاتنين قدام صدرك وابعد خطوة عشان الكابل يبقى مشدود.","شد بطنك واعصر مؤخرتك، وادفع اليد لقدام وافرد دراعك على الآخر من غير ما جسمك يلف ناحية الجهاز.","اثبت ثانيتين وارجع باليد لصدرك ببطء، وكمّل عدّاتك وبدّل الجهة."],
   errs:["لف الجذع أو الحوض مع دفع اليد — التمرين كله إنك تمنع اللف","وزن تقيل بيشدك ويفقدك ثباتك","حبس النفس طول المجموعة — اتنفس وانت ثابت"]},
- {id:"abwheel", n:"عجلة البطن (رول آوت)", en:"Ab Wheel Rollout", cat:"كور", eq:"عجلة بطن", sets:3, reps:"8–12", rest:60, vid:"bmB7ww3VWXg", q:"ab wheel rollout form",
+ {id:"abwheel", n:"عجلة البطن (رول آوت)", en:"Ab Wheel Rollout", cat:"كور", eq:"عجلة بطن", sets:3, reps:"8–12", rest:60, vid:"bmB7ww3VWXg", ig:"Ddr2PoaCp0V", iga:"squat_university", q:"ab wheel rollout form",
   steps:["انزل على ركبك على سجادة وامسك العجلة تحت كتفك على طول، وشد بطنك واعصر مؤخرتك وخلّي ضهرك محايد.","لف بالعجلة لقدام ببطء وانت محافظ على خط جسمك مستقيم من راسك لركبك — انزل بس للمدى اللي تقدر تتحكم فيه.","اسحب نفسك راجعًا بشد بطنك من غير ما حوضك يوقع لتحت، وكرر."],
   errs:["تقوّس أسفل الظهر ووقوع الحوض وانت نازل — قلّل المدى فورًا","سحب الرجوع بالمؤخرة والحوض بدل البطن","النزول أبعد من قدرتك على التحكم"]},
- {id:"hangraise", n:"رفع الرجلين معلّق", en:"Hanging Leg Raise", cat:"كور", eq:"بار عقلة", sets:3, reps:"10–15", rest:60, vid:"RuIdJSVTKO4", q:"hanging leg raise form",
+ {id:"hangraise", n:"رفع الرجلين معلّق", en:"Hanging Leg Raise", cat:"كور", eq:"بار عقلة", sets:3, reps:"10–15", rest:60, vid:"RuIdJSVTKO4", ig:"DEUhjU5oaPc", iga:"reda_coach", q:"hanging leg raise form",
   steps:["اتعلّق في بار العقلة بقبضة بعرض كتفك وخلي جسمك ثابت تمامًا من غير أي أرجحة.","شد بطنك وارفع رجليك مفرودين (أو ركبك مثنية لو لسه مبتدئ) لحد مستوى حوضك أو أعلى، ولف حوضك لفوق سنة صغيرة في آخر الحركة.","انزل ببطء وسيطرة كاملة من غير ما جسمك يتأرجح، وابدأ العدّة اللي بعدها من الثبات."],
   errs:["الأرجحة واستخدام الدفع بدل عضلات البطن","رفع الرجلين من الحوض بس من غير لف الحوض — بيشتغل عضلات الفخد الأمامية بس","النزول السريع السايب"]},
- {id:"backext", n:"تمديد الظهر على الجهاز", en:"Back Extension", cat:"كور", eq:"جهاز تمديد الظهر", sets:3, reps:"12–15", rest:60, vid:"ph3pddpKzzw", q:"back extension machine form lower back",
+ {id:"backext", n:"تمديد الظهر على الجهاز", en:"Back Extension", cat:"كور", eq:"جهاز تمديد الظهر", sets:3, reps:"12–15", rest:60, vid:"ph3pddpKzzw", ig:"De5mMcvAdcy", iga:"squat_university", q:"back extension machine form lower back",
   steps:["ظبط وسادة الجهاز تحت عظمة حوضك على طول وثبّت رجلك، ودراعك متقاطعة على صدرك (وتقدر تمسك طارة على صدرك لما تتقدم).","انزل بجسمك لتحت من مفصل الحوض وانت محافظ على ضهرك مستقيم، لحد ما تحس بشد في الخلفية وأسفل الظهر.","اطلع بشد المؤخرة وأسفل الظهر لحد ما جسمك يبقى خط مستقيم — ومتكملش لفوق زيادة."],
   errs:["الطلوع أعلى من خط الجسم وتقويس الظهر لفوق (فرط تمديد)","تقويس الضهر وانت نازل بدل الحركة من الحوض","النط والسرعة بدل التحكم"]},
  {id:"declinecrunch", n:"كرنش على بنش مائل", en:"Decline Crunch", cat:"كور", eq:"بنش مائل", sets:3, reps:"12–15", rest:60, vid:"FRzQXeN1hro", q:"decline crunch form abs",
@@ -1859,10 +1946,10 @@ const EX = [
  {id:"bicycrunch", n:"كرنش الدراجة", en:"Bicycle Crunch", cat:"كور", eq:"وزن الجسم", sets:3, reps:"16–20", rest:45, vid:"eqg47ZuGZXQ", q:"bicycle crunch form obliques",
   steps:["نام على ضهرك وإيدك خفيفة جنب ودنك، وارفع رجليك وركبك مثنية 90 درجة وكتفك مرفوع عن الأرض.","لف جسمك وهات كتفك ناحية الركبة المقابلة وانت بتفرد الرجل التانية لقدام من غير ما تلمس الأرض.","بدّل الجهات بحركة بدّال بطيئة ومتحكمة، وضهرك السفلي ملزوق في الأرض طول الوقت."],
   errs:["شد الرقبة بالإيد وسحب الراس","السرعة والدفع بدل اللف الحقيقي من الجذع","لمس الرجل المفرودة للأرض بين العدّات"]},
- {id:"legraise", n:"رفع الرجلين مستلقي", en:"Lying Leg Raise", cat:"كور", eq:"وزن الجسم", sets:3, reps:"12–15", rest:45, vid:"jrSWj0huh5o", q:"lying leg raise form lower abs",
+ {id:"legraise", n:"رفع الرجلين مستلقي", en:"Lying Leg Raise", cat:"كور", eq:"وزن الجسم", sets:3, reps:"12–15", rest:45, vid:"jrSWj0huh5o", ig:"DFWvyoxxsRs", iga:"docjenfit", igm:1, q:"lying leg raise form lower abs",
   steps:["نام على ضهرك وإيدك جنب جسمك أو تحت مؤخرتك، والزق ضهرك السفلي في الأرض بشد بطنك.","ارفع رجليك مفرودين ومضمومين لحد ما يبقوا عموديين على الأرض، ولف حوضك لفوق سنة صغيرة في آخر الحركة.","انزل ببطء ووقّف قبل ما كعبك يلمس الأرض، وحافظ على ضهرك ملزوق طول الوقت."],
   errs:["تقوّس أسفل الظهر ورفعه عن الأرض وانت نازل — قلّل المدى أو اثنِ ركبك شوية","النزول السريع وترك الرجلين يقعوا","رفع الراس والكتف عن الأرض"]},
- {id:"goodmorning", n:"صباح الخير بالبار (جود مورنينج)", en:"Barbell Good Morning", cat:"كور", eq:"بار وراك", sets:3, reps:"10–12", rest:90, vid:"VkNcc0BQrpA", q:"barbell good morning form lower back",
+ {id:"goodmorning", n:"صباح الخير بالبار (جود مورنينج)", en:"Barbell Good Morning", cat:"كور", eq:"بار وراك", sets:3, reps:"10–12", rest:90, vid:"VkNcc0BQrpA", ig:"DFAyPrWMBP1", iga:"muscleandmotion", ig3:1, ign:"المجسم بيورّي نسخة الجود مورنينج بوضعية منقسمة مع كيتلبل — نفس فكرة الانحناء من الحوض؛ طبّقها بالبار زي الخطوات بالظبط", q:"barbell good morning form lower back",
   steps:["حط البار على ضهرك العلوي زي السكوات واقف ورجلك بعرض كتفك وركبك مثنية ثنية خفيفة ثابتة — وابدأ دايمًا بوزن خفيف.","رجّع حوضك لورا وانحنِ من الحوض بس وضهرك مستقيم تمامًا، لحد ما تحس بشد قوي في الخلفية أو جسمك يقرب يوازي الأرض.","ارجع لفوق بدفع حوضك لقدام وشد المؤخرة، وحافظ على ضهرك محايد طول الحركة."],
   errs:["تقويس الضهر — خطر على أسفل الظهر، وقّف وقلّل الوزن فورًا","ثني الركب زيادة وتحويل الحركة لسكوات","وزن تقيل قبل إتقان الانحناء من الحوض"]},
  {id:"kegel_basic", n:"كيجل الأساسي — شد وارتخاء", en:"Basic Kegel — Squeeze & Release", cat:"كور", eq:"وزن الجسم", sets:3, reps:"10", rest:30, vid:"mrwHQkG4EsI", q:"kegel exercises for men beginner form",
@@ -1877,25 +1964,25 @@ const EX = [
  {id:"kegel_bridge", n:"كيجل مع جسر المؤخرة", en:"Kegel + Glute Bridge", cat:"كور", eq:"وزن الجسم", sets:3, reps:"10–12", rest:45, vid:"7NOGZGBusWQ", q:"kegel glute bridge pelvic floor exercise",
   steps:["نام على ضهرك وركبك مثنية ورجلك على الأرض، وشد عضلة قاع الحوض الأول وانت لسه على الأرض.","وانت محافظ على شد الكيجل، ادفع حوضك لفوق بشد المؤخرة لحد ما جسمك يبقى خط مستقيم، واثبت ثانيتين فوق وانت لسه شادد.","انزل ببطء وسيب الشد وانت تحت، وارتخِ ثانيتين قبل العدّة اللي بعدها."],
   errs:["الدفع بالضهر السفلي بدل المؤخرة وقاع الحوض","نسيان شد الكيجل وانت طالع — الترتيب دايمًا: كيجل الأول وبعدين الجسر"]},
- {id:"wallangel", n:"ملائكة الحائط", en:"Wall Angels", cat:"تصحيح وضعيات", eq:"حائط", sets:3, reps:"10–12", rest:30, vid:"HKxYl-6fAF8", q:"wall angels exercise posture",
+ {id:"wallangel", n:"ملائكة الحائط", en:"Wall Angels", cat:"تصحيح وضعيات", eq:"حائط", sets:3, reps:"10–12", rest:30, vid:"HKxYl-6fAF8", ig:"DGCfN6_xB_Q", iga:"docjenfit", ign:"ملائكة الحائط هي الحركة رقم 3 من 5 حركات في الريل — دي الحركة المطلوبة هنا", q:"wall angels exercise posture",
   steps:["ضهرك وراسك ومؤخرتك ملزوقين في الحائط ودراعك على شكل W.","ارفع دراعك لفوق على الحائط ببطء وانت محافظ على لمس الحائط.","انزل ببطء وكرر — لو ضهرك انفصل عن الحائط قلّل المدى."],
   errs:["تقويس الضهر عشان توصل لفوق","السرعة"]},
- {id:"catcow", n:"القطة والجمل (كات–كاو)", en:"Cat-Cow", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:2, reps:"10–12", rest:30, vid:"K9bK0BwKFjs", q:"cat cow stretch exercise",
+ {id:"catcow", n:"القطة والجمل (كات–كاو)", en:"Cat-Cow", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:2, reps:"10–12", rest:30, vid:"K9bK0BwKFjs", ig:"DS30UziDb5I", iga:"docjenfit", q:"cat cow stretch exercise",
   steps:["على إيدك وركبك، ضهرك مستقيم في النص.","قوّس ضهرك لفوق وانت مطلع نفَس ودقنك لتحت (القطة).","وبعدين انزل بضهرك لتحت وارفع راسك وصدرك (الجمل) — ببطء ومع النفس."],
   errs:["حركة سريعة أو مدى مؤلم","حبس النفس"]},
- {id:"glutebridge", n:"جسر المؤخرة", en:"Glute Bridge", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:3, reps:"12–15", rest:45, vid:"OUgsJ8-Vi0E", q:"glute bridge form",
+ {id:"glutebridge", n:"جسر المؤخرة", en:"Glute Bridge", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:3, reps:"12–15", rest:45, vid:"OUgsJ8-Vi0E", ig:"DDLtPnox0UG", iga:"docjenfit", ign:"الريل بيورّي نسخة جسر المؤخرة برجل واحدة ضمن كذا حركة — التمرين المطلوب هنا: جسر المؤخرة", q:"glute bridge form",
   steps:["نام على ضهرك وركبك مثنية ورجلك على الأرض.","ادفع حوضك لفوق بشد المؤخرة لحد ما جسمك يبقى خط مستقيم.","اقف فوق ثانيتين وانزل ببطء."],
   errs:["الدفع بالضهر السفلي بدل المؤخرة","رفع الحوض زيادة بتقويس"]},
- {id:"hipflexor", n:"إطالة عضلات الحوض الأمامية", en:"Hip Flexor Stretch", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:2, reps:"30 ثانية لكل جهة", rest:30, vid:"YQmpO9VT2X4", q:"hip flexor stretch proper",
+ {id:"hipflexor", n:"إطالة عضلات الحوض الأمامية", en:"Hip Flexor Stretch", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:2, reps:"30 ثانية لكل جهة", rest:30, vid:"YQmpO9VT2X4", ig:"DGBj81sys3h", iga:"docjenfit", igm:1, q:"hip flexor stretch proper",
   steps:["في وضعية الطعنة على ركبة واحدة، شد مؤخرة الرجل الخلفية.","ميل حوضك لتحت (كأنك بتدخل بطنك) لحد ما تحس بشد قدام الحوض.","اثبت واتنفس — ده أهم تمرين لميل الحوض الأمامي."],
   errs:["تقويس الضهر لقدام بدل إمالة الحوض","نسيان شد المؤخرة بيضيّع الإطالة"]},
- {id:"chintuck", n:"سحب الذقن (تشين تاك)", en:"Chin Tuck", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:3, reps:"10", rest:30, vid:"VBMmpgD2tGw", q:"chin tuck exercise neck posture",
+ {id:"chintuck", n:"سحب الذقن (تشين تاك)", en:"Chin Tuck", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:3, reps:"10", rest:30, vid:"VBMmpgD2tGw", ig:"DHwLqjaPas7", iga:"docjenfit", igm:1, q:"chin tuck exercise neck posture",
   steps:["قاعد أو واقف وضهرك مستقيم وباصص قدامك.","اسحب دقنك لورا على طول (اعمل دقن مزدوجة) من غير ما تميل راسك.","اثبت 3–5 ثواني وارجع."],
   errs:["إمالة الراس لتحت بدل السحب لورا","شد جامد مؤلم — الحركة خفيفة"]},
- {id:"birddog", n:"الطائر والكلب (بيرد دوج)", en:"Bird Dog", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:3, reps:"8 لكل جهة", rest:45, vid:"wiFNA3sqjCA", q:"bird dog exercise form",
+ {id:"birddog", n:"الطائر والكلب (بيرد دوج)", en:"Bird Dog", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:3, reps:"8 لكل جهة", rest:45, vid:"wiFNA3sqjCA", ig:"DeEzroxCYF8", iga:"muscleandmotion", ig3:1, q:"bird dog exercise form",
   steps:["على إيدك وركبك وضهرك مستقيم وحوضك ثابت.","مد دراع ورجل عكس بعض لحد ما يبقوا في مستوى جسمك.","اثبت ثانيتين وارجع ببطء وبدّل — من غير ما حوضك يلف."],
   errs:["لف الحوض ورفع الرجل فوق مستوى الضهر","السرعة"]},
- {id:"doorway", n:"إطالة الصدر على إطار الباب", en:"Doorway Chest Stretch", cat:"تصحيح وضعيات", eq:"إطار باب", sets:2, reps:"30 ثانية لكل جهة", rest:30, vid:"pDG8HxxlRQ4", q:"doorway chest stretch posture",
+ {id:"doorway", n:"إطالة الصدر على إطار الباب", en:"Doorway Chest Stretch", cat:"تصحيح وضعيات", eq:"إطار باب", sets:2, reps:"30 ثانية لكل جهة", rest:30, vid:"pDG8HxxlRQ4", ig:"Ddp5xQWy7el", iga:"docjenfit", q:"doorway chest stretch posture",
   steps:["حط ساعدك على إطار الباب وكوعك على مستوى كتفك.","خد خطوة لقدام بالرجل اللي في نفس الجهة لحد ما تحس بشد في صدرك وكتفك الأمامي.","اثبت واتنفس بعمق، وبدّل الجهة."],
   errs:["رفع الكتف للودن","تقويس الضهر السفلي عشان تزود الشد"]},
  {id:"thoracic_ext", n:"تمديد الظهر العلوي على فوم رولر", en:"Thoracic Extension Foam Roller", cat:"تصحيح وضعيات", eq:"فوم رولر", sets:2, reps:"8–10", rest:30, vid:"qhTNoag8Esk", q:"thoracic extension foam roller posture",
@@ -1904,7 +1991,7 @@ const EX = [
  {id:"bandpull", n:"فتح الباند (باند بول أبارت)", en:"Band Pull-Apart", cat:"تصحيح وضعيات", eq:"باند مقاومة", sets:3, reps:"15–20", rest:45, vid:"NSXl5IaS5O8", q:"band pull apart form posture",
   steps:["امسك الباند قدام صدرك ودراعك شبه مستقيمة.","افتح الباند لبره لحد ما يلمس صدرك واعصر لوحين كتفك.","ارجع ببطء وكرر من غير ما ترفع كتفك."],
   errs:["ثني الكوع بيحوّله لتمرين تاني","رفع الكتف للودن بدل عصر اللوحين"]},
- {id:"prone_ytw", n:"حركات Y-T-W على البطن", en:"Prone Y T W", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:2, reps:"6 لكل حرف", rest:45, vid:"Yv6sUKOwOY8", q:"prone Y T W exercise posture",
+ {id:"prone_ytw", n:"حركات Y-T-W على البطن", en:"Prone Y T W", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:2, reps:"6 لكل حرف", rest:45, vid:"Yv6sUKOwOY8", ig:"DXvXGdcSse3", iga:"docjenfit", ign:"الريل بيورّي حرف Y بس — طبّق نفس الفكرة على حرفي T وW زي الخطوات", q:"prone Y T W exercise posture",
   steps:["نام على بطنك وجبهتك على الأرض ودراعك قدامك على شكل Y وابهامك لفوق، ارفع دراعك بسيط واعصر ضهرك العلوي.","كرر على شكل T (دراعك لجنب) وبعدين W (كوع مثني وبتسحب لورا).","انزل ببطء بين كل عدّة — الحركة صغيرة ومتحكمة."],
   errs:["رفع الراس والضهر السفلي بدل الضهر العلوي","استخدام زخم"]},
  {id:"neck_side", n:"إطالة الرقبة الجانبية", en:"Neck Side Stretch", cat:"تصحيح وضعيات", eq:"وزن الجسم", sets:2, reps:"30 ثانية لكل جهة", rest:20, vid:"GSoXPJRnR6E", q:"neck side stretch levator scapulae",
@@ -1946,7 +2033,7 @@ const EX = [
  {id:"st_kneehug", n:"ضم الركبة للصدر ماشيًا", en:"Walking Knee Hugs", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"6 لكل جهة", rest:15, vid:"0TbiswLwSAc", q:"walking knee hug warm up",
   steps:["امشِ خطوة وارفع ركبتك وضُمّها بإيديك ناحية صدرك.","اثبت ثانية وانت واقف على الرجل التانية وضهرك مستقيم.","انزل وكمل خطوة بالرجل التانية بالتبادل."],
   errs:["الميل لقدام وانت بتضم الركبة","شد الركبة لصدرك بقوة"]},
- {id:"st_inchworm", n:"الدودة (إنش وورم)", en:"Inchworm", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"6", rest:20, vid:"v7q7hmV_LrY", q:"inchworm exercise warm up",
+ {id:"st_inchworm", n:"الدودة (إنش وورم)", en:"Inchworm", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"6", rest:20, vid:"v7q7hmV_LrY", ig:"DfxEOrAon8_", iga:"muscleandmotion", ig3:1, q:"inchworm exercise warm up",
   steps:["من الوقوف انحنِ من الحوض وحط إيدك على الأرض قدام رجلك.","امشِ بإيدك لقدام لحد وضعية البلانك واثبت ثانية.","امشِ بإيدك راجع أو قرّب رجلك لإيدك وقوم واقف، وكرر."],
   errs:["نزول الحوض لتحت في وضعية البلانك","النزول أبعد من مرونتك وضهرك مقوّس"]},
  {id:"st_neckroll", n:"دوائر الرقبة البطيئة (نص دائرة)", en:"Neck Half Circles", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"5 لكل جهة", rest:15, vid:"8QCjZMdcIpc", q:"neck rolls stretch exercise",
@@ -1958,7 +2045,7 @@ const EX = [
  {id:"st_shoulderpass", n:"تمريرات الكتف بالباند", en:"Band Pass-Through", cat:"إطالات ومرونة", eq:"باند مقاومة خفيف أو فوطة", sets:1, reps:"8", rest:15, vid:"5ULepECl170", q:"band pass through shoulder mobility",
   steps:["امسك الباند بقبضة واسعة قدام فخدك ودراعك مفرود.","ارفع دراعك لفوق ولورا بحركة قوس واسعة لحد ما الباند يوصل ورا ضهرك.","ارجع بنفس القوس لقدام — القبضة واسعة على قد ما كتفك مرتاح."],
   errs:["قبضة ضيقة بتزق الكتف","ثني الكوع أو تقويس الضهر عشان تعدّي"]},
- {id:"st_pigeon", n:"إطالة الحمامة", en:"Pigeon Stretch", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"45 ثانية لكل جهة", rest:15, vid:"eozoyiiRMfQ", q:"pigeon stretch glutes exercise",
+ {id:"st_pigeon", n:"إطالة الحمامة", en:"Pigeon Stretch", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"45 ثانية لكل جهة", rest:15, vid:"eozoyiiRMfQ", ig:"DQdPJ14kR87", iga:"docjenfit", igm:1, q:"pigeon stretch glutes exercise",
   steps:["من وضعية الأربعة، هات ركبتك اليمين لقدام وحطها ورا إيدك اليمين وكعبك ناحية حوضك الشمال.","مد الرجل الشمال لورا وانزل بحوضك ناحية الأرض على قد ما تقدر.","اثبت وحس بالشد في مؤخرة الجهة الأمامية، وبعدين بدّل."],
   errs:["ألم في الركبة الأمامية — بدّلها بالرقم 4 وانت نايم","النزول بقوة وحوضك مايل لجهة"]},
  {id:"st_figure4", n:"إطالة الرقم 4 وانت نايم", en:"Supine Figure-4 Stretch", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"40 ثانية لكل جهة", rest:15, vid:"BEzCi0OX9qk", q:"supine figure 4 stretch glutes",
@@ -1970,13 +2057,13 @@ const EX = [
  {id:"st_cobra", n:"إطالة الكوبرا", en:"Cobra Stretch", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"30 ثانية", rest:15, vid:"f2KYt9muYoM", q:"cobra stretch abs lower back",
   steps:["نام على بطنك وإيدك تحت كتفك.","ادفع بإيدك وارفع صدرك لفوق وحوضك على الأرض.","اثبت واتنفس — الشد في بطنك وتمدد مريح في ضهرك."],
   errs:["الطلوع لحد قرصة في الضهر السفلي","رفع الكتف ناحية الودن — كتفك لتحت"]},
- {id:"st_child", n:"وضعية الطفل", en:"Child's Pose", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"45 ثانية", rest:15, vid:"_ZX_zTOBgp8", q:"child's pose stretch benefits",
+ {id:"st_child", n:"وضعية الطفل", en:"Child's Pose", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"45 ثانية", rest:15, vid:"_ZX_zTOBgp8", ig:"DL3s1ouRBJv", iga:"docjenfit", igm:1, q:"child's pose stretch benefits",
   steps:["اركع وقعد على كعبك وركبك مفتوحة سنة.","انحنِ لقدام ومد دراعك على الأرض قدامك.","نزّل جبهتك ناحية الأرض واتنفس ببطء وعمق."],
   errs:["حبس النفس — دي إطالة استرخاء، النفس أهم حاجة فيها","الضغط على البطن بعد الأكل على طول"]},
  {id:"st_lyingtwist", n:"التواء الضهر وانت نايم", en:"Supine Spinal Twist", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"40 ثانية لكل جهة", rest:15, vid:"mNdJti7ZwKI", q:"supine spinal twist stretch",
   steps:["نام على ضهرك ودراعك مفتوح على جنبك.","اثنِ ركبة واحدة وعدّيها فوق جسمك للجهة التانية لحد ما تقرب من الأرض.","كتفك يفضل على الأرض وراسك بصّة للجهة العكسية، واثبت وبدّل."],
   errs:["رفع الكتف عن الأرض عشان توصل بالركبة","أي تنميل في الرجل — قلّل المدى فورًا"]},
- {id:"st_lat", n:"إطالة اللات راكع", en:"Kneeling Lat Stretch", cat:"إطالات ومرونة", eq:"كرسي أو بنش", sets:1, reps:"30 ثانية لكل جهة", rest:15, vid:"LYJjlj6rmxs", q:"kneeling lat stretch exercise",
+ {id:"st_lat", n:"إطالة اللات راكع", en:"Kneeling Lat Stretch", cat:"إطالات ومرونة", eq:"كرسي أو بنش", sets:1, reps:"30 ثانية لكل جهة", rest:15, vid:"LYJjlj6rmxs", ig:"Dezk2PayxJ4", iga:"docjenfit", igm:1, q:"kneeling lat stretch exercise",
   steps:["اركع قدام كرسي وحط كوعك أو إيدك عليه ودراعك ممدود.","رجّع حوضك لورا وانزل بصدرك ناحية الأرض.","حس بالشد على جنب ضهرك تحت الإبط، واثبت وبدّل الجهة بميل جسمك سنة."],
   errs:["الشد يكون في الكتف نفسه — قلّل المدى","تقويس الضهر السفلي بدل النزول من الصدر"]},
  {id:"st_tricepsst", n:"إطالة الترايسبس خلف الراس", en:"Overhead Triceps Stretch", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"25 ثانية لكل جهة", rest:15, vid:"zzvDO56B0HE", q:"overhead triceps stretch form",
@@ -1994,13 +2081,13 @@ const EX = [
  {id:"mob_shoulder_cars", n:"موبيليتي الكتف — دوائر الكتف الكبيرة", en:"Shoulder CARs", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"5 لكل جهة واتجاه", rest:15, vid:"CLWFwun1BfQ", q:"shoulder CARs controlled articular rotations",
   steps:["واقف وضهرك مستقيم وبطنك مشدودة، ودراعك مفرود جنب جسمك وكفك باصص لفخدك.","ارفع دراعك لقدام وللفوق ولورا وارجع بيه لتحت في أكبر دائرة بطيئة تقدر عليها — كأنك بترسم دائرة كاملة بصباعك على حائط جنبك.","اعمل 5 دوائر لقدام و5 لورا وبعدين بدّل الدراع — الحركة بطيئة جدًا وكلها من مفصل الكتف بس."],
   errs:["لف الجذع أو تقويس الضهر عشان تكبّر الدائرة — جسمك ثابت والكتف بس اللي بيتحرك","دوائر سريعة صغيرة — البطء والمدى الكامل هو التمرين كله"]},
- {id:"mob_wrist", n:"موبيليتي الرسغ — دوائر وثني ومد", en:"Wrist Mobility Circles", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"8 لكل اتجاه", rest:15, vid:"6AiH4Jw4K0M", q:"wrist mobility circles flexion extension warm up",
+ {id:"mob_wrist", n:"موبيليتي الرسغ — دوائر وثني ومد", en:"Wrist Mobility Circles", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"8 لكل اتجاه", rest:15, vid:"6AiH4Jw4K0M", ig:"DPVLFnFEd3f", iga:"docjenfit", igm:1, q:"wrist mobility circles flexion extension warm up",
   steps:["مد دراعك قدامك واعمل قبضة خفيفة، ولف رسغك في دوائر بطيئة كاملة 8 مرات في اتجاه و8 في الاتجاه التاني.","بعدين اثنِ رسغك لتحت على آخره ومدّه لفوق على آخره 8 مرات بحركة بطيئة ومتحكمة.","بدّل الإيد وكرر — وحرك كمان صوابعك فتح وقفل 10 مرات بسرعة خفيفة عشان الدم يوصل للإيد."],
   errs:["الحركة من الكوع بدل الرسغ — ثبّت ساعدك بإيدك التانية","أي ألم حاد في الرسغ — قلّل المدى وخليك في حدود المريح"]},
- {id:"mob_thoracic", n:"موبيليتي العمود الفقري — دوران الصدر على الأربعة", en:"Quadruped Thoracic Rotation", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"8 لكل جهة", rest:15, vid:"QWwiOHexU8I", q:"quadruped thoracic rotation thread the needle mobility",
+ {id:"mob_thoracic", n:"موبيليتي العمود الفقري — دوران الصدر على الأربعة", en:"Quadruped Thoracic Rotation", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"8 لكل جهة", rest:15, vid:"QWwiOHexU8I", ig:"DfKnkg8yWT5", iga:"docjenfit", igm:1, q:"quadruped thoracic rotation thread the needle mobility",
   steps:["على إيدك وركبك وحوضك ثابت، وحط إيد واحدة ورا راسك وكوعها باصص لتحت.","لف صدرك وافتح كوعك لفوق ناحية السقف على قد ما تقدر وانت باصص مع كوعك.","انزل بكوعك وعدّيه تحت جسمك للجهة التانية (خياطة الإبرة)، وكرر 8 مرات وبعدين بدّل الجهة."],
   errs:["لف الحوض مع الصدر — اللف من ضهرك العلوي بس وحوضك ثابت","حركة سريعة — كل لفة تاخد ثانيتين على الأقل"]},
- {id:"mob_scap", n:"موبيليتي لوح الكتف — دفع الكتف من البلانك", en:"Scapular Push-Up", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"10", rest:15, vid:"QQkkgdVvH9M", q:"scapular push up serratus mobility",
+ {id:"mob_scap", n:"موبيليتي لوح الكتف — دفع الكتف من البلانك", en:"Scapular Push-Up", cat:"إطالات ومرونة", eq:"وزن الجسم", sets:1, reps:"10", rest:15, vid:"QQkkgdVvH9M", ig:"DV9T9kYEjUe", iga:"bioforceman", ig3:1, q:"scapular push up serratus mobility",
   steps:["في وضعية البلانك العالي ودراعك مفرود وكوعك مقفول تمامًا وضهرك مستقيم.","من غير ما تثني كوعك خالص، نزّل صدرك بين لوحين كتفك كأنك بتقرّبهم من بعض.","ادفع الأرض بعيد عنك وافتح لوحين كتفك على آخرهم ودوّر ضهرك العلوي سنة صغيرة لفوق، وكرر ببطء."],
   errs:["ثني الكوع بيحوّله لضغط عادي — الكوع مقفول طول الوقت","نزول الحوض لتحت — جسمك خط مستقيم من راسك لكعبك"]},
  {id:"mob_hip_cars", n:"موبيليتي الحوض — دوائر الحوض الكبيرة", en:"Hip CARs", cat:"إطالات ومرونة", eq:"حائط أو كرسي للتوازن", sets:1, reps:"5 لكل جهة واتجاه", rest:15, vid:"5kM-o61Z14I", q:"standing hip CARs controlled articular rotations",
@@ -2009,7 +2096,7 @@ const EX = [
  {id:"mob_ankle_circles", n:"موبيليتي الكاحل — دوائر الكاحل", en:"Ankle Circles", cat:"إطالات ومرونة", eq:"حائط أو كرسي للتوازن", sets:1, reps:"8 لكل اتجاه وجهة", rest:15, vid:"mzTQGYGI0Ng", q:"ankle circles mobility warm up",
   steps:["واقف على رجل وماسك في حائط، وارفع الرجل التانية ومشطها باصص لتحت ولامس الأرض بصابعك الكبير بس.","لف مشط رجلك في دوائر بطيئة كاملة — 8 في اتجاه و8 في الاتجاه التاني — والحركة كلها من مفصل الكاحل.","بدّل الرجل وكرر، وحاول تخلي الدائرة كبيرة ومتساوية من كل الجهات."],
   errs:["لف الرجل كلها من الركبة أو الحوض — قصبتك ثابتة والكاحل بس اللي بيلف","دوائر صغيرة سريعة — البطء والمدى الكامل أهم"]},
- {id:"mob_deep_squat", n:"موبيليتي القرفصاء العميقة — نقل الوزن", en:"Deep Squat Weight Shifts", cat:"إطالات ومرونة", eq:"وزن الجسم أو عمود تمسك فيه", sets:1, reps:"8", rest:15, vid:"jqIaVnGQYfY", q:"deep squat weight shifts hip ankle mobility",
+ {id:"mob_deep_squat", n:"موبيليتي القرفصاء العميقة — نقل الوزن", en:"Deep Squat Weight Shifts", cat:"إطالات ومرونة", eq:"وزن الجسم أو عمود تمسك فيه", sets:1, reps:"8", rest:15, vid:"jqIaVnGQYfY", ig:"Db-6IGKAkgA", iga:"muscleandmotion", ig3:1, ign:"الريل تحدّي موبيليتي في قرفصاء عميقة بعصاية — التمرين المطلوب هنا: نقل الوزن من رجل لرجل وانت في القرفصاء العميقة زي الخطوات", q:"deep squat weight shifts hip ankle mobility",
   steps:["انزل في قرفصاء عميقة على قد ما تقدر وكعبك على الأرض (امسك في عمود أو باب لو توازنك بيهرب).","انقل وزنك من رجل لرجل ببطء وادفع ركبتك لقدام فوق صوابعك في كل جهة على آخر مدى كاحلك.","لف جذعك سنة صغيرة لكل جهة وانت تحت، وبعدين قوم وكرر — 8 نقلات بطيئة."],
   errs:["رفع الكعب عن الأرض — لو بيترفع امسك في حاجة وقرّب رجلك منها","النزول أعمق من مداك بضهر مقوّس جامد — خليك في مدى نضيف"]},
  {id:"wallstand", n:"وقفة الحائط (محاذاة القوام)", en:"Wall Stand Posture Check", cat:"تصحيح وضعيات", eq:"حائط", sets:3, reps:"30–60 ثانية", rest:20, vid:"_-0OpEMoaG0", q:"wall stand posture alignment exercise",
@@ -2019,105 +2106,105 @@ const EX = [
  {id:"vip_cable_y", n:"رفع Y بالكابل", en:"Cable y raises", cat:"أكتاف", eq:"جهاز كابل", sets:2, reps:"8-12 reps", rest:90, vid:"oDSGrucETfw", q:"cable y raise form",
   steps:["واقف قدام الكابل وماسك المقبضين متقاطعين على مستوى الركبة.","ارفع دراعك لفوق ولبره على شكل حرف Y وكوعك شبه مستقيم.","انزل ببطء لحد نقطة البداية وكرر."],
   errs:["استخدام وزن تقيل والتأرجح بالجسم","رفع الكتف ناحية الودن بدل فتح الدراع"]},
- {id:"vip_lat_wide", n:"سحب علوي واسع", en:"Wide grip latpulldown", cat:"ظهر", eq:"جهاز سحب", sets:3, reps:"6-10 reps", rest:150, vid:"CAwf7n6Luuc", tt:"7602436025993989393", tta:"deltabolic", q:"wide grip lat pulldown form",
+ {id:"vip_lat_wide", n:"سحب علوي واسع", en:"Wide grip latpulldown", cat:"ظهر", eq:"جهاز سحب", sets:3, reps:"6-10 reps", rest:150, vid:"CAwf7n6Luuc", ig:"DD4MnDWoSz2", iga:"reda_coach", tt:"7602436025993989393", tta:"deltabolic", q:"wide grip lat pulldown form",
   steps:["امسك البار بقبضة واسعة واقعد وثبّت ركبك تحت السند.","اسحب البار لصدرك العلوي وانت مائل لورا بسيط وكوعك نازل لتحت.","ارجع بالبار لفوق ببطء لحد الشد الكامل في الضهر."],
   errs:["السحب ورا الرقبة","الميل لورا جامد واستخدام الجسم كله"]},
- {id:"vip_kelso", n:"شراجز كيلسو", en:"Kelso shrugs", cat:"ظهر", eq:"جهاز تجديف مسنود أو كابل", sets:2, reps:"8-12 reps", rest:150, vid:"qKCuWRx-hKk", q:"kelso shrug form",
+ {id:"vip_kelso", n:"شراجز كيلسو", en:"Kelso shrugs", cat:"ظهر", eq:"جهاز تجديف مسنود أو كابل", sets:2, reps:"8-12 reps", rest:150, vid:"qKCuWRx-hKk", ig:"DRPj4Z1gtKb", iga:"muscleandmotion", ig3:1, ign:"المجسم بيورّي شراجز بالدمبل بمجسم 3D — نفس حركة سحب لوحين الكتف لورا ولتحت؛ نفّذها وانت مسنود على الجهاز (شراجز كيلسو) زي الخطوات", q:"kelso shrug form",
   steps:["صدرك مسنود على الجهاز ودراعك ممدود لتحت وماسك المقابض.","من غير ما تثني كوعك، اسحب لوحين كتفك لورا ولتحت واعصرهم.","ارجع ببطء لحد ما كتفك يتمدد لقدام وكرر."],
   errs:["ثني الكوع بيحوّله لتجديف عادي","رفع الكتف للودن بدل سحب اللوحين لورا"]},
- {id:"vip_tbar", n:"تي بار ماشين", en:"T bar machine", cat:"ظهر", eq:"جهاز تي بار", sets:1, reps:"6-10 reps", rest:150, vid:"sw1LwNZ3F_w", q:"t bar row machine form",
+ {id:"vip_tbar", n:"تي بار ماشين", en:"T bar machine", cat:"ظهر", eq:"جهاز تي بار", sets:1, reps:"6-10 reps", rest:150, vid:"sw1LwNZ3F_w", ig:"DDzJa7Ko9G0", iga:"reda_coach", q:"t bar row machine form",
   steps:["صدرك على سند الجهاز ورجلك ثابتة وماسك المقابض.","اسحب الوزن ناحية بطنك واعصر لوحين كتفك فوق.","انزل بالوزن بتحكم لحد الامتداد الكامل."],
   errs:["رفع الصدر عن السند واستخدام الزخم","نص مدى حركة"]},
- {id:"vip_pullover", n:"بول أوفر بالكابل (لات)", en:"Cable lat pullover", cat:"ظهر", eq:"جهاز كابل وحبل", sets:3, reps:"6-10 reps", rest:150, vid:"gxOwRCbkcqw", q:"cable lat pullover form",
+ {id:"vip_pullover", n:"بول أوفر بالكابل (لات)", en:"Cable lat pullover", cat:"ظهر", eq:"جهاز كابل وحبل", sets:3, reps:"6-10 reps", rest:150, vid:"gxOwRCbkcqw", ig:"DG23QIHtrK2", iga:"reda_coach", q:"cable lat pullover form",
   steps:["واقف بعيد خطوة عن الكابل وماسك الحبل فوق راسك وكوعك مثني بسيط وثابت.","اسحب الحبل لتحت في قوس واسع لحد ما يوصل لفخدك واعصر اللات.","ارجع ببطء لفوق لحد إحساس الشد وكرر من غير ما تحرك جذعك."],
   errs:["ثني ومد الكوع بيحوّله لترايسبس","تقويس الضهر مع كل عدّة"]},
- {id:"vip_dblat", n:"رفرفة جانبية بالدمبل", en:"Db lateral raises", cat:"أكتاف", eq:"دمبل", sets:2, reps:"8-10 reps", rest:150, vid:"3VcKaXpzqRo", tt:"7570556618874604818", tta:"deltabolic", q:"dumbbell lateral raise form",
+ {id:"vip_dblat", n:"رفرفة جانبية بالدمبل", en:"Db lateral raises", cat:"أكتاف", eq:"دمبل", sets:2, reps:"8-10 reps", rest:150, vid:"3VcKaXpzqRo", ig:"DJ4HWLBoiSL", iga:"reda_coach", tt:"7570556618874604818", tta:"deltabolic", q:"dumbbell lateral raise form",
   steps:["واقف وماسك دمبل في كل إيد وكوعك مثني بسيط وثابت.","ارفع دراعك لجنب لحد مستوى الكتف.","انزل ببطء — البطء هنا أهم من الوزن."],
   errs:["وزن تقيل وتأرجح بالجسم","الرفع فوق مستوى الكتف"]},
  {id:"vip_rev_curl", n:"كيرل عكسي بالكابل", en:"Cable reverse curl", cat:"ذراعين", eq:"جهاز كابل وبار", sets:1, reps:"8-12 reps", rest:105, vid:"hfNRgBNVhk4", q:"cable reverse curl form",
   steps:["امسك بار الكابل السفلي بقبضة عكسية (كفّك لتحت) وكوعك ثابت جنب جسمك.","ارفع البار لفوق بانقباض الساعد والبايسبس.","انزل ببطء لحد الامتداد الكامل."],
   errs:["تحريك الكوع لقدام","التأرجح بالضهر"]},
- {id:"vip_crunch", n:"كرنش البطن", en:"Abdominal crunches", cat:"بطن", eq:"وزن الجسم أو جهاز", sets:2, reps:"8-12 reps", rest:105, vid:"1-O42ARFBag", q:"abdominal crunch proper form",
+ {id:"vip_crunch", n:"كرنش البطن", en:"Abdominal crunches", cat:"بطن", eq:"وزن الجسم أو جهاز", sets:2, reps:"8-12 reps", rest:105, vid:"1-O42ARFBag", ig:"DFhy0TTI_M_", iga:"reda_coach", q:"abdominal crunch proper form",
   steps:["نام على ضهرك وركبك مثنية ورجلك ثابتة.","ارفع كتفك عن الأرض بلف جذعك وشد بطنك وانت مطلع نفَس.","انزل ببطء من غير ما تريح راسك على الأرض."],
   errs:["شد الرقبة بالإيدين","الحركة من الحوض بدل لف الجذع"]},
- {id:"vip_low_incline", n:"ضغط صدر مائل منخفض بالدمبل", en:"DB low incline chest press", cat:"صدر", eq:"دمبل وبنش مائل بسيط", sets:3, reps:"6-10 reps", rest:150, vid:"8iPEnn-ltC8", q:"low incline dumbbell press form",
+ {id:"vip_low_incline", n:"ضغط صدر مائل منخفض بالدمبل", en:"DB low incline chest press", cat:"صدر", eq:"دمبل وبنش مائل بسيط", sets:3, reps:"6-10 reps", rest:150, vid:"8iPEnn-ltC8", ig:"DNdgoHTxWC4", iga:"jeremyethier", q:"low incline dumbbell press form",
   steps:["ظبط البنش على ميل بسيط (15–20 درجة) وامسك دمبل في كل إيد.","انزل بالدمبل جنب صدرك العلوي وكوعك ~45 درجة.","اضغط لفوق لحد الامتداد من غير قفل عنيف."],
   errs:["ميل عالي بيحوّل التمرين لأكتاف","النزول بسرعة من غير تحكم"]},
  {id:"vip_fly_machine", n:"تفتيح صدر بالجهاز (فلاي ماشين)", en:"Chest fly machine", cat:"صدر", eq:"جهاز فلاي", sets:2, reps:"8-12 reps", rest:150, vid:"Iwe6AmxVf7o", q:"machine chest fly form",
   steps:["ظبط الكرسي عشان المقابض تبقى على مستوى صدرك وضهرك ملزوق في السند.","افتح دراعك لورا لحد إحساس شد مريح في الصدر.","قرّب المقابض قدامك واعصر الصدر ثانية."],
   errs:["فتح زيادة عن اللزوم بيجهد الكتف","وزن تقيل بيخليك تدفع بالكتف"]},
- {id:"vip_nocheat_curl", n:"كيرل دمبل بدون غش", en:"DB no cheat curl", cat:"ذراعين", eq:"دمبل", sets:2, reps:"8-12 reps", rest:150, vid:"HIO999g9X3c", q:"strict dumbbell curl no cheat form",
+ {id:"vip_nocheat_curl", n:"كيرل دمبل بدون غش", en:"DB no cheat curl", cat:"ذراعين", eq:"دمبل", sets:2, reps:"8-12 reps", rest:150, vid:"HIO999g9X3c", ig:"DJR2uzvsV0D", iga:"tiboinshape", ig3:1, ign:"الريل بيورّي كيرل دمبل مع مجسم 3D لعضلة الباي — نفّذه بدون غش: كوعك ثابت وضهرك ما يتأرجحش زي الخطوات", q:"strict dumbbell curl no cheat form",
   steps:["واقف وضهرك ثابت وماسك دمبل في كل إيد وكوعك ملزوق في جنبك.","ارفع الدمبل من غير أي تأرجح أو مساعدة من الضهر — لو اتحرك جسمك يبقى الوزن تقيل.","انزل ببطء لحد الامتداد الكامل."],
   errs:["التأرجح بالجسم (ده عكس فكرة التمرين نفسه)","تحريك الكوع لقدام"]},
- {id:"vip_pushdown", n:"دفع ترايسبس بالحبل", en:"Rope triceps pushdown", cat:"ذراعين", eq:"كابل وحبل", sets:3, reps:"8-12 reps", rest:150, vid:"2-LAMcpzODU", tt:"7592673362367810829", tta:"tylerpath", q:"rope tricep pushdown form",
+ {id:"vip_pushdown", n:"دفع ترايسبس بالحبل", en:"Rope triceps pushdown", cat:"ذراعين", eq:"كابل وحبل", sets:3, reps:"8-12 reps", rest:150, vid:"2-LAMcpzODU", ig:"DXJrgxYjHed", iga:"reda_coach", ign:"الريل فيه 3 تمارين ترايسبس — التمرين المطلوب هنا: دفع الترايسبس بالحبل", tt:"7592673362367810829", tta:"tylerpath", q:"rope tricep pushdown form",
   steps:["واقف قدام الكابل وكوعك ملزوق في جنبك وماسك طرفين الحبل.","ادفع لتحت لحد الامتداد الكامل وافتح طرفين الحبل بره.","ارجع ببطء لحد 90 درجة بس."],
   errs:["تحريك الكوع لقدام ولورا","استخدام وزن الجسم في الدفع"]},
  {id:"vip_bayesian", n:"كيرل باييشن بالكابل", en:"Biceps bayesian curl", cat:"ذراعين", eq:"جهاز كابل", sets:2, reps:"8-12 reps", rest:150, vid:"4T5WVGwNMkM", q:"bayesian cable curl form",
   steps:["واقف وظهرك للكابل السفلي وماسك المقبض ودراعك ممدود وراك شوية.","ارفع المقبض لفوق وانت محافظ على كوعك ثابت ورا جسمك.","انزل ببطء لحد الشد الكامل في البايسبس."],
   errs:["تقديم الكوع لقدام بيضيّع الشد","التأرجح بالجذع"]},
- {id:"vip_rope_oh", n:"مد ترايسبس فوق الرأس بالحبل", en:"Rope overhead extension", cat:"ذراعين", eq:"جهاز كابل وحبل", sets:2, reps:"8-10 reps", rest:105, vid:"GzmlxvSFE7A", q:"cable rope overhead extension form",
+ {id:"vip_rope_oh", n:"مد ترايسبس فوق الرأس بالحبل", en:"Rope overhead extension", cat:"ذراعين", eq:"جهاز كابل وحبل", sets:2, reps:"8-10 reps", rest:105, vid:"GzmlxvSFE7A", ig:"DYKF84XsIYZ", iga:"reda_coach", q:"cable rope overhead extension form",
   steps:["امسك الحبل من الكابل السفلي ولف ظهرك له ودراعك فوق راسك وكوعك مثني.","مد دراعك لفوق لحد الامتداد الكامل وكوعك ثابت جنب راسك.","انزل ببطء ورا راسك لحد الشد وكرر."],
   errs:["فتح الكوع لبره","تقويس الضهر السفلي — شد بطنك ومؤخرتك"]},
  {id:"vip_hammer_cable", n:"كيرل مطرقة بالكابل", en:"Cable hammer curl", cat:"ذراعين", eq:"كابل وحبل", sets:1, reps:"8-10 reps", rest:105, vid:"zC3nLlEvin4", q:"cable hammer curl form",
   steps:["امسك طرفين الحبل من الكابل السفلي بقبضة متعادلة (كفّك مواجه بعضه).","ارفع الحبل لفوق وكوعك ثابت جنب جسمك.","انزل ببطء لحد الامتداد الكامل."],
   errs:["تحريك الكوع لقدام","التأرجح بالكتف"]},
- {id:"vip_seated_curl", n:"ثني رجل جالس (سيتد ليج كيرل)", en:"Seated leg curl", cat:"أرجل", eq:"جهاز ليج كيرل جالس", sets:2, reps:"10-12 reps", rest:150, vid:"F488k67BTNo", q:"seated leg curl form",
+ {id:"vip_seated_curl", n:"ثني رجل جالس (سيتد ليج كيرل)", en:"Seated leg curl", cat:"أرجل", eq:"جهاز ليج كيرل جالس", sets:2, reps:"10-12 reps", rest:150, vid:"F488k67BTNo", ig:"DDM186vpNXn", iga:"jeffnippard", ign:"الريل تمرينة رجل كاملة فيها كذا تمرين — التمرين المطلوب هنا: ثني الرجل جالس (سيتد ليج كيرل)", q:"seated leg curl form",
   steps:["ظبط الجهاز عشان السند يبقى فوق كعبك على طول وضهرك ملزوق في الكرسي.","اثني رجلك لتحت ولورا بانقباض الخلفية.","ارجع ببطء لحد قرب الامتداد الكامل."],
   errs:["رفع المؤخرة عن الكرسي","حركة سريعة من غير عصر فوق وتحت"]},
- {id:"vip_legpress", n:"دفع الأرجل بالجهاز", en:"Leg press machine", cat:"أرجل", eq:"جهاز ليج برس", sets:2, reps:"8-12 reps", rest:150, vid:"fQPCer_jY5I", ar:1, tt:"7569637415707479351", tta:"arielyu.fit", q:"leg press machine form",
+ {id:"vip_legpress", n:"دفع الأرجل بالجهاز", en:"Leg press machine", cat:"أرجل", eq:"جهاز ليج برس", sets:2, reps:"8-12 reps", rest:150, vid:"fQPCer_jY5I", ig:"DGdlasIIBBk", iga:"reda_coach", ar:1, tt:"7569637415707479351", tta:"arielyu.fit", q:"leg press machine form",
   steps:["رجلك على اللوحة بعرض كتفك وضهرك ملزوق في الكرسي.","انزل لحد ما ركبك توصل ~90 درجة.","ادفع من كعبك ونص رجلك من غير قفل الركبة."],
   errs:["قفل الركبة بعنف فوق","نزول المؤخرة عن الكرسي"]},
  {id:"vip_smith_hip", n:"هيب ثرست على السميث", en:"Smith hip thrust", cat:"أرجل", eq:"جهاز سميث وبنش", sets:1, reps:"8-12 reps", rest:150, vid:"xDmFkJxPzeM", q:"smith machine hip thrust form",
   steps:["ضهرك العلوي على البنش وبار السميث على حوضك ورجلك ثابتة على الأرض.","ادفع حوضك لفوق لحد ما جسمك يبقى خط مستقيم واعصر المؤخرة ثانيتين.","انزل ببطء من غير ما تريح الوزن."],
   errs:["تقويس الضهر السفلي فوق","الدفع بصوابع الرجل بدل الكعب"]},
- {id:"vip_adductors", n:"جهاز الضم (أدكتورز)", en:"Adductors machine", cat:"أرجل", eq:"جهاز تقريب الفخدين", sets:2, reps:"8-12 reps", rest:150, vid:"CjAVezAggkI", q:"hip adductor machine form",
+ {id:"vip_adductors", n:"جهاز الضم (أدكتورز)", en:"Adductors machine", cat:"أرجل", eq:"جهاز تقريب الفخدين", sets:2, reps:"8-12 reps", rest:150, vid:"CjAVezAggkI", ig:"DDM186vpNXn", iga:"jeffnippard", ign:"الريل تمرينة رجل كاملة فيها كذا تمرين — التمرين المطلوب هنا: جهاز الضم (أدكتورز)", q:"hip adductor machine form",
   steps:["اقعد على الجهاز ورجلك على السندات من بره وضهرك مستقيم.","قرّب رجليك لبعض بانقباض الفخد الداخلي واعصر ثانية.","افتح ببطء لحد إحساس الشد وكرر."],
   errs:["استخدام الزخم والقفل بسرعة","ميل الجذع لقدام"]},
  {id:"vip_smith_calf", n:"سمانة واقف على السميث", en:"Smith standing calf raises", cat:"أرجل", eq:"جهاز سميث ودرجة", sets:3, reps:"8-12 reps", rest:150, vid:"-M4-G8p8fmc", q:"smith machine standing calf raise form",
   steps:["واقف على حافة درجة وبار السميث على كتفك.","انزل بكعبك لتحت لحد الشد الكامل في السمانة.","اطلع على صوابعك على قد ما تقدر واقف ثانية فوق."],
   errs:["نص مدى وسرعة","ثني الركبة أثناء الرفع"]},
- {id:"vip_cable_lat_wn", n:"رفرفة جانبية بالكابل", en:"Cable lateral raises W.N", cat:"أكتاف", eq:"جهاز كابل", sets:2, reps:"6-10 reps", rest:105, vid:"v_ZkxWzYnMc", q:"cable lateral raise form",
+ {id:"vip_cable_lat_wn", n:"رفرفة جانبية بالكابل", en:"Cable lateral raises W.N", cat:"أكتاف", eq:"جهاز كابل", sets:2, reps:"6-10 reps", rest:105, vid:"v_ZkxWzYnMc", ig:"DGTIgljIDGb", iga:"reda_coach", q:"cable lateral raise form",
   steps:["واقف جنب الكابل السفلي وماسك المقبض بالإيد البعيدة.","ارفع دراعك لجنب لحد مستوى الكتف وكوعك شبه مستقيم.","انزل ببطء وكرر وبعدين بدّل الجهة."],
   errs:["لف الجذع مع الرفع","وزن تقيل بيشد الترابيز بدل الكتف"]},
  {id:"vip_torso_rot", n:"لف جذع بالكابل", en:"Cable torso rotation", cat:"بطن", eq:"جهاز كابل", sets:2, reps:"8-12 reps", rest:105, vid:"pAplQXk3dkU", q:"cable torso rotation form",
   steps:["واقف جنب الكابل وماسك المقبض بالإيدين قدام بطنك ودراعك شبه مستقيمة.","لف جذعك بعيد عن الجهاز بحركة من البطن الجانبية وحوضك ثابت.","ارجع ببطء وكرر وبعدين بدّل الجهة."],
   errs:["اللف من الحوض والرجلين بدل الجذع","سحب الوزن بالدراعين"]},
- {id:"vip_db_flat", n:"ضغط صدر مستوٍ بالدمبل", en:"DB flat press", cat:"صدر", eq:"دمبل وبنش", sets:2, reps:"6-10 reps", rest:150, vid:"-iF63aMCAFo", q:"dumbbell flat bench press form",
+ {id:"vip_db_flat", n:"ضغط صدر مستوٍ بالدمبل", en:"DB flat press", cat:"صدر", eq:"دمبل وبنش", sets:2, reps:"6-10 reps", rest:150, vid:"-iF63aMCAFo", ig:"DE9uLv1o9tz", iga:"reda_coach", q:"dumbbell flat bench press form",
   steps:["نام على البنش وماسك دمبل في كل إيد فوق صدرك.","انزل بالدمبل جنب صدرك وكوعك ~45 درجة.","اضغط لفوق لحد الامتداد من غير ما الدمبلين يخبطوا."],
   errs:["نزول الدمبل على الكتف","فتح الكوع 90 درجة"]},
  {id:"vip_smith_shoulder", n:"ضغط كتف مائل على السميث", en:"Smith incline shoulder press", cat:"أكتاف", eq:"جهاز سميث وبنش مائل", sets:1, reps:"6-10 reps", rest:150, vid:"evtRb6cPF-Q", q:"smith machine incline shoulder press form",
   steps:["اقعد على بنش مائل بسيط وبار السميث قدام وشك على مستوى الدقن.","اضغط البار لفوق لحد الامتداد من غير قفل عنيف.","انزل ببطء لمستوى الدقن وكرر."],
   errs:["تقويس الضهر السفلي","النزول بالبار ورا الرقبة"]},
- {id:"vip_row_close", n:"سحب جالس قبضة ضيقة", en:"Close grip seated row", cat:"ظهر", eq:"جهاز كابل ومقبض V", sets:2, reps:"8-12 reps", rest:150, vid:"GZbfZ033f74", q:"close grip seated cable row form",
+ {id:"vip_row_close", n:"سحب جالس قبضة ضيقة", en:"Close grip seated row", cat:"ظهر", eq:"جهاز كابل ومقبض V", sets:2, reps:"8-12 reps", rest:150, vid:"GZbfZ033f74", ig:"DQPWhW0j5e1", iga:"jeremyethier", ign:"الريل شرح للسحب الجالس بالكابل — طبّق نفس الشكل بقبضة ضيقة قريبة من جسمك", q:"close grip seated cable row form",
   steps:["اقعد وضهرك مستقيم وماسك مقبض الـ V.","اسحب المقبض لبطنك وكوعك ماشي ملزوق في جنبك واعصر ضهرك.","ارجع ببطء لحد الشد الكامل."],
   errs:["الميل لقدام ولورا مع كل عدّة","شد الكتف بدل الضهر"]},
  {id:"vip_lat_machine", n:"رفرفة جانبية بالجهاز", en:"Lateral raises machine", cat:"أكتاف", eq:"جهاز رفرفة جانبية", sets:3, reps:"10-12 reps", rest:105, vid:"fIvHMVJoPjU", q:"machine lateral raise form",
   steps:["ظبط الكرسي عشان كتفك يبقى على محور الجهاز وساعدك على السند.","ارفع دراعك لجنب لحد مستوى الكتف.","انزل ببطء من غير ما تريح الوزن."],
   errs:["رفع الكتف للودن","استخدام الزخم في أول العدّة"]},
- {id:"vip_preacher", n:"كيرل بريتشر بالدمبل", en:"DB preacher curl", cat:"ذراعين", eq:"دمبل وبنش بريتشر", sets:2, reps:"8-12 reps", rest:105, vid:"DoCWeUBA0Gs", q:"dumbbell preacher curl form",
+ {id:"vip_preacher", n:"كيرل بريتشر بالدمبل", en:"DB preacher curl", cat:"ذراعين", eq:"دمبل وبنش بريتشر", sets:2, reps:"8-12 reps", rest:105, vid:"DoCWeUBA0Gs", ig:"DRplfyUD8Zb", iga:"jeremyethier", ign:"الريل فيه 4 تمارين ذراع بالدمبل — التمرين المطلوب هنا: كيرل بريتشر بالدمبل", q:"dumbbell preacher curl form",
   steps:["دراعك على سند البريتشر وماسك الدمبل.","ارفع الدمبل لفوق بانقباض البايسبس وكوعك ثابت على السند.","انزل ببطء لحد قرب الامتداد الكامل من غير ما تقفل تحت."],
   errs:["رفع الكوع عن السند","النزول بسرعة — خطر على وتر البايسبس"]},
- {id:"vip_rdl_vip", n:"ديدليفت روماني (RDLs)", en:"RDLS", cat:"أرجل", eq:"بار أو دمبل", sets:3, reps:"8-12 reps", rest:150, vid:"nvwDoLfMKOI", ar:1, tt:"7620146990021643551", tta:"gialayn", q:"romanian deadlift form",
+ {id:"vip_rdl_vip", n:"ديدليفت روماني (RDLs)", en:"RDLS", cat:"أرجل", eq:"بار أو دمبل", sets:3, reps:"8-12 reps", rest:150, vid:"nvwDoLfMKOI", ig:"DLD9GUhg9Qr", iga:"squat_university", ig3:1, ar:1, tt:"7620146990021643551", tta:"gialayn", q:"romanian deadlift form",
   steps:["واقف وماسك الوزن ورجّع حوضك لورا كأنك بتقفل باب بمؤخرتك.","انزل بالوزن ملزوق في رجلك لحد شد قوي في الخلفية وضهرك مستقيم.","ارجع لفوق بشد المؤخرة — الحركة من الحوض مش الضهر."],
   errs:["تقويس الضهر","ثني الركبة كتير بيحوّله لسكوات"]},
  {id:"vip_hack", n:"هاك سكوات بالجهاز", en:"Hack squat machine", cat:"أرجل", eq:"جهاز هاك سكوات", sets:2, reps:"6-10 reps", rest:150, vid:"rYgNArpwE7E", q:"hack squat machine form",
   steps:["ضهرك وكتفك على سند الجهاز ورجلك على اللوحة بعرض كتفك.","انزل لحد ما ركبك توصل ~90 درجة وركبك في اتجاه صوابع رجلك.","ادفع من كعبك ونص رجلك واطلع من غير قفل الركبة."],
   errs:["دخول الركب لجوه","رفع الكعب عن اللوحة"]},
- {id:"vip_leg_ext", n:"مد رجل بالجهاز (ليج إكستنشن)", en:"Leg extension machine", cat:"أرجل", eq:"جهاز مد الفخد", sets:3, reps:"8-12 reps", rest:150, vid:"iQ92TuvBqRo", q:"leg extension machine form",
+ {id:"vip_leg_ext", n:"مد رجل بالجهاز (ليج إكستنشن)", en:"Leg extension machine", cat:"أرجل", eq:"جهاز مد الفخد", sets:3, reps:"8-12 reps", rest:150, vid:"iQ92TuvBqRo", ig:"DFDAVvloWyH", iga:"reda_coach", q:"leg extension machine form",
   steps:["ظبط السند عشان يبقى على قصبة رجلك فوق الكعب وضهرك ملزوق.","مد رجلك لفوق لحد الامتداد واعصر الفخد الأمامي ثانية.","انزل ببطء من غير ما تريح الوزن."],
   errs:["رمي الوزن بالزخم","رفع المؤخرة عن الكرسي"]},
- {id:"vip_lying_curl", n:"ثني رجل نايم (لاينج ليج كيرل)", en:"Lying leg curl", cat:"أرجل", eq:"جهاز ليج كيرل نايم", sets:2, reps:"6-10 reps", rest:150, vid:"YpB3pc1e88Q", q:"lying leg curl form",
+ {id:"vip_lying_curl", n:"ثني رجل نايم (لاينج ليج كيرل)", en:"Lying leg curl", cat:"أرجل", eq:"جهاز ليج كيرل نايم", sets:2, reps:"6-10 reps", rest:150, vid:"YpB3pc1e88Q", ig:"DH_JtG6obwD", iga:"reda_coach", q:"lying leg curl form",
   steps:["نام على الجهاز والسند فوق كعبك وحوضك ملزوق في البنش.","اثني رجلك لفوق لحد ما السند يقرب من المؤخرة واعصر الخلفية.","انزل ببطء لحد قرب الامتداد الكامل."],
   errs:["رفع الحوض عن البنش","حركة سريعة من غير تحكم"]},
- {id:"vip_wrist", n:"ثني معصم بالدمبل", en:"Db wrist flexion", cat:"ذراعين", eq:"دمبل وبنش", sets:2, reps:"10-12 reps", rest:150, vid:"3VLTzIrnb5g", q:"dumbbell wrist flexion form",
+ {id:"vip_wrist", n:"ثني معصم بالدمبل", en:"Db wrist flexion", cat:"ذراعين", eq:"دمبل وبنش", sets:2, reps:"10-12 reps", rest:150, vid:"3VLTzIrnb5g", ig:"DHgJhGBIcQ7", iga:"reda_coach", q:"dumbbell wrist flexion form",
   steps:["ساعدك ثابت على البنش أو على ركبك وكفّك لفوق وماسك دمبل خفيف.","اثني معصمك لفوق بانقباض الساعد.","انزل ببطء لحد الشد وكرر."],
   errs:["تحريك الساعد كله بدل المعصم","وزن تقيل — التمرين ده بوزن خفيف وتكرار متحكم"]},
  /* ===== CrossFit — بأوزان الجيم ===== */
- {id:"cf_goblet", n:"جوبلت سكوات بالكيتلبل", en:"Kettlebell Goblet Squat", cat:"كروس فيت", eq:"كيتلبل", sets:3, reps:"10–12", rest:60, vid:"f-Vf2yRRqOg", q:"kettlebell goblet squat form", lvl:"beg", lvlTxt:"مناسب للمبتدئين",
+ {id:"cf_goblet", n:"جوبلت سكوات بالكيتلبل", en:"Kettlebell Goblet Squat", cat:"كروس فيت", eq:"كيتلبل", sets:3, reps:"10–12", rest:60, vid:"f-Vf2yRRqOg", ig:"DeNZr5ACw6l", iga:"squat_university", q:"kettlebell goblet squat form", lvl:"beg", lvlTxt:"مناسب للمبتدئين",
   steps:["امسك الكيتلبل من المقبض قدام صدرك وكوعك لتحت ورجلك أوسع من كتفك بشوية.","انزل سكوات لحد ما كوعك يلمس فخدك من جوه وضهرك مستقيم وصدرك مرفوع.","اطلع بدفع من كعبك وشد المؤخرة فوق."],
   errs:["دخول الركب لجوه","ميل الجذع لقدام والكيتلبل يبعد عن صدرك"],
   cfWarn:"ابدأ بكيتلبل خفيف (8–12 كجم) لحد ما السكوات يبقى نضيف. وقّف لو حسيت بألم في ركبك أو ضهرك."},
- {id:"cf_kbswing", n:"أرجوحة الكيتلبل", en:"Kettlebell Swing", cat:"كروس فيت", eq:"كيتلبل", sets:3, reps:"12–15", rest:60, vid:"mKDIuUbH94Q", q:"kettlebell swing form hip hinge", lvl:"mid", lvlTxt:"متوسط — إتقان حركة الحوض أولًا",
+ {id:"cf_kbswing", n:"أرجوحة الكيتلبل", en:"Kettlebell Swing", cat:"كروس فيت", eq:"كيتلبل", sets:3, reps:"12–15", rest:60, vid:"mKDIuUbH94Q", ig:"Df3c74lARQs", iga:"squat_university", q:"kettlebell swing form hip hinge", lvl:"mid", lvlTxt:"متوسط — إتقان حركة الحوض أولًا",
   steps:["واقف والكيتلبل قدامك على الأرض، امسكه وابدأ بأرجوحة صغيرة بين رجليك بحركة من الحوض (هينج) مش من ضهرك.","ازقّ حوضك لقدام بقوة المؤخرة عشان الكيتلبل يطلع لمستوى الصدر — دراعك مجرد حبل، القوة من الحوض.","خليه ينزل ويدخل بين رجليك تاني وكرر بالإيقاع — ضهرك مستقيم طول الوقت."],
   errs:["رفع الكيتلبل بالدراع والكتف بدل دفع الحوض","عمل سكوات بدل هينج (الركبة بتثني زيادة)","تقويس الضهر تحت"],
   cfWarn:"الحركة دي ممنوعة لو عندك مشاكل في الضهر السفلي. متبدأش بيها قبل ما تتقن الديدليفت الروماني بوزن خفيف، وابدأ بوزن خفيف جدًا — الوزن التقيل مع تقنية وحشة بيحمّل الضهر. وقّف فورًا مع أي ألم في الضهر."},
@@ -2141,7 +2228,7 @@ const EX = [
   steps:["واقف قدام صندوق واطي وثابت، اثني ركبك وحوضك بسيط ودراعك لورا.","اقفز بقوة رجليك ودراعك واطلع على الصندوق واهبط برجليك الاتنين وكبك مثنية (هبوط ناعم).","اقف كامل فوق، وبعدين انزل بخطوة لتحت — متنطش لتحت أبدًا."],
   errs:["الهبوط بركب مستقيمة أو داخلة لجوه","النط لتحت من الصندوق (بيحمّل وتر أكيليس والركب)","صندوق عالي قبل إتقان الهبوط الناعم على واطي"],
   cfWarn:"ممنوعة للمبتدئين ولأي حد عنده مشاكل في الركب أو الكاحل أو الضهر. ابدأ بصندوق واطي جدًا (20–30 سم) واتقن الهبوط الناعم الصامت الأول، والبديل الآمن دايمًا هو صعود الصندوق. وقّف فورًا مع أي ألم في الركبة."},
- {id:"cf_dbsnatch", n:"خطف الدمبل", en:"Dumbbell Snatch", cat:"كروس فيت", eq:"دمبل", sets:3, reps:"6 لكل جهة", rest:75, vid:"kCXV3zXqwLQ", q:"dumbbell snatch form", lvl:"adv", lvlTxt:"متقدم — ممنوع قبل إتقان التقنية",
+ {id:"cf_dbsnatch", n:"خطف الدمبل", en:"Dumbbell Snatch", cat:"كروس فيت", eq:"دمبل", sets:3, reps:"6 لكل جهة", rest:75, vid:"kCXV3zXqwLQ", ig:"DbyCIH8Dzri", iga:"muscleandmotion", ig3:1, ign:"المجسم بيورّي خطف بالبار بمجسم 3D — نفس فكرة الخطف لفوق؛ التمرين المطلوب هنا: خطف الدمبل بإيد واحدة زي الخطوات", q:"dumbbell snatch form", lvl:"adv", lvlTxt:"متقدم — ممنوع قبل إتقان التقنية",
   steps:["الدمبل بين رجليك على الأرض، انزل هينج وامسكه بإيد واحدة وضهرك مستقيم.","ازقّ الأرض ومد حوضك وركبك بقوة وخلي الدمبل طالع ملزوق في جسمك.","اسحب كوعك لفوق وبعدين لُفّ وادفع الدمبل لفوق لحد ما دراعك يمتد فوق راسك، وانزل بيه بتحكم وبدّل الإيد."],
   errs:["لف الدمبل بعيد عن الجسم (بيحمّل الكتف)","البداية بضهر مقوّس","وزن تقيل قبل ما الحركة تبقى تلقائية بوزن خفيف"],
   cfWarn:"حركة انفجارية متقدمة — ممنوعة للمبتدئين ولأي حد عنده مشاكل كتف أو ضهر. اتعلمها بدمبل خفيف جدًا (أو حتى من غير وزن) الأول، وممنوع تزود وزن قبل ما كل عدّة تبقى نضيفة. وقّف مع أي ألم في الكتف."},
@@ -2169,7 +2256,7 @@ const EX = [
   steps:["الدمبلين على كتفك، انزل نزلة صغيرة بركبك وحوضك (ديب) وانت مستقيم.","ادفع الأرض برجليك بقوة وخلي زخم الرجلين يطلع الدمبلين، وكمل بالضغط لحد ما دراعك يمتد فوق راسك.","انزل بالدمبلين على كتفك بتحكم وكرر — الحركة كلها من الرجلين أولًا وبعدين الدراع."],
   errs:["الضغط بالدراع بس من غير دفع الرجلين","تقويس الضهر السفلي وانت بتضغط لفوق","النزلة (الديب) عميقة أوي فتتحول لسكوات"],
   cfWarn:"اختار وزن تقدر تتحكم فيه وهو فوق راسك. وقّف مع ألم في الكتف أو الضهر، وممنوع وزن تقيل لو لسه بتتعلم توقيت الدفع."},
- {id:"cf_turkish", n:"النهوض التركي بالكيتلبل", en:"Turkish Get-Up", cat:"كروس فيت", eq:"كيتلبل", sets:3, reps:"3 لكل جهة", rest:75, vid:"saYKvqSscuY", q:"turkish get up kettlebell form", lvl:"mid", lvlTxt:"متوسط — بطيئة ومتحكمة، مش حركة سرعة",
+ {id:"cf_turkish", n:"النهوض التركي بالكيتلبل", en:"Turkish Get-Up", cat:"كروس فيت", eq:"كيتلبل", sets:3, reps:"3 لكل جهة", rest:75, vid:"saYKvqSscuY", ig:"Df3ByNoC9sA", iga:"squat_university", q:"turkish get up kettlebell form", lvl:"mid", lvlTxt:"متوسط — بطيئة ومتحكمة، مش حركة سرعة",
   steps:["نام على ضهرك والكيتلبل مضغوط لفوق بإيد واحدة ودراعك مستقيم وعينك على الوزن طول الوقت.","اطلع على كوعك وبعدين على إيدك، واثني الرجل اللي في نفس جهة الوزن.","ارفع حوضك ومرّر الرجل التانية لورا لوضعية الركوع، وبعدين اقف كامل — وانزل بعكس الخطوات بالترتيب."],
   errs:["الاستعجال — الحركة دي بتتعمل ببطء خطوة خطوة","إبعاد العين عن الوزن","دراع مثني والوزن بيهتز فوق راسك"],
   cfWarn:"اتعلمها الأول من غير وزن (بكوباية مية على قبضتك) وبعدين بوزن خفيف جدًا. ممنوعة لو عندك مشاكل في الكتف أو المعصم. لو الوزن بدأ يهتز فوقك، نزّله فورًا وابعد عنه."},
@@ -2177,7 +2264,7 @@ const EX = [
   steps:["وضعية بلانك عالي وإيديك ماسكة دمبلين على الأرض، ورجلك أوسع من العادي للثبات.","اسحب دمبل واحد لجنب ضلوعك وانت ثابت — حوضك ميلفش وبطنك مشدودة.","نزّل الدمبل بتحكم وبدّل الجهة. جسمك خط مستقيم طول الوقت."],
   errs:["لف الحوض مع السحب (معناها الوزن تقيل أو رجلك ضيقة)","نزول الحوض وتقويس الضهر","سحب الدمبل لفوق زيادة عن مستوى الجسم"],
   cfWarn:"ابدأ بوزن خفيف ورجلين واسعين. لو معصمك بيوجعك في البلانك، اعملها على دمبل سداسي ثابت واتأكد إنه مش بيتدحرج. وقّف مع ألم في الكتف أو الضهر."},
- {id:"cf_kbclean", n:"كلين بالكيتلبل", en:"Kettlebell Clean", cat:"كروس فيت", eq:"كيتلبل", sets:3, reps:"6 لكل جهة", rest:75, vid:"C0B1SrcGAIA", q:"kettlebell clean form", lvl:"adv", lvlTxt:"متقدم — ممنوع قبل إتقان الأرجوحة والديدليفت",
+ {id:"cf_kbclean", n:"كلين بالكيتلبل", en:"Kettlebell Clean", cat:"كروس فيت", eq:"كيتلبل", sets:3, reps:"6 لكل جهة", rest:75, vid:"C0B1SrcGAIA", ig:"DedSJTSgmnM", iga:"squat_university", q:"kettlebell clean form", lvl:"adv", lvlTxt:"متقدم — ممنوع قبل إتقان الأرجوحة والديدليفت",
   steps:["ابدأ بأرجوحة صغيرة بإيد واحدة من بين رجليك بحركة حوض (هينج) وضهرك مستقيم.","وانت بتزقّ حوضك، اسحب الكيتلبل قريب من جسمك ولفّ إيدك حواليه بنعومة لحد ما يستقر على ساعدك في وضعية الراك عند كتفك.","انزل بيه بعكس الحركة من غير ما يخبط ساعدك، وكرر. الخبطة على الساعد معناها اللف غلط."],
   errs:["الكيتلبل بيخبط الساعد (اللف حوالين الوزن مش العكس)","سحب الوزن بالدراع بدل دفع الحوض","تقويس الضهر في البداية"],
   cfWarn:"حركة متقدمة — ممنوعة قبل ما تتقن ديدليفت وأرجوحة الكيتلبل بوزن خفيف. لو الكيتلبل بيخبط ساعدك كل مرة، ارجع خطوة واتدرب على اللف بوزن أخف، ووقّف مع ألم في المعصم أو الكتف أو الضهر."},
@@ -2190,22 +2277,22 @@ const EX = [
   errs:["الاستعجال فكل جزء يبوظ (الحركة دي ٤ حركات في واحدة)","تقويس الضهر في الضغط والتجديف","وزن واحد تقيل على كل الأجزاء — اختار وزن أضعف جزء فيهم"],
   cfWarn:"لازم تكون متقن كل جزء لوحده الأول: الضغط، والتجديف رينيجيد، والكلين، والثراستر. اختار الوزن على أضعف حركة فيهم، ووقّف فورًا مع ألم في الكتف أو الضهر أو دوخة."},
  /* ===== تمارين حرة — بوزن الجسم ===== */
- {id:"fr_squat", n:"سكوات حر بوزن الجسم", en:"Bodyweight Squat", cat:"تمارين حرة", eq:"وزن الجسم", sets:3, reps:"12–20", rest:60, vid:"", q:"bodyweight squat form",
+ {id:"fr_squat", n:"سكوات حر بوزن الجسم", en:"Bodyweight Squat", cat:"تمارين حرة", eq:"وزن الجسم", sets:3, reps:"12–20", rest:60, vid:"", ig:"DJEZ7Qbo-MA", iga:"reda_coach", q:"bodyweight squat form",
   steps:["واقف ورجلك بعرض كتفك وصوابعك لبره بسيط ودراعك قدامك للتوازن.","انزل بحوضك لتحت ولورا وانت دافع ركبك لبره وضهرك مستقيم.","انزل لحد ما فخدك يوازي الأرض واطلع بدفع من كعبك ونص رجلك."],
   errs:["دخول الركب لجوه","رفع الكعب عن الأرض","ميل الجذع لقدام بزيادة"]},
  {id:"fr_pike", n:"ضغط بايك (أكتاف بوزن الجسم)", en:"Pike Push-Up", cat:"تمارين حرة", eq:"وزن الجسم", sets:3, reps:"8–12", rest:60, vid:"", q:"pike push up form shoulders",
   steps:["من وضعية البلانك ارفع حوضك لفوق لحد ما جسمك يعمل شكل V مقلوب وراسك بين دراعك.","اثني كوعك وانزل براسك ناحية الأرض بين إيديك.","ادفع الأرض واطلع لفوق — الحمل كله على أكتافك."],
   errs:["حوض واطي بيحوّلها لضغط صدر عادي","النزول بالراس قدام الإيدين بدل بينهم"]},
- {id:"fr_dips", n:"ديبس على كرسي (ترايسبس)", en:"Chair Dips", cat:"تمارين حرة", eq:"كرسي ثابت", sets:3, reps:"10–15", rest:60, vid:"", q:"chair dips triceps form",
+ {id:"fr_dips", n:"ديبس على كرسي (ترايسبس)", en:"Chair Dips", cat:"تمارين حرة", eq:"كرسي ثابت", sets:3, reps:"10–15", rest:60, vid:"", ig:"DEZrM9MoQjO", iga:"reda_coach", q:"chair dips triceps form",
   steps:["إيدك على طرف كرسي ثابت وراك ورجلك قدامك ومؤخرتك بره الكرسي.","انزل بمؤخرتك لتحت بثني كوعك لحد ما دراعك العلوي يوازي الأرض.","ادفع بإيدك واطلع بقوة الترايسبس."],
   errs:["كرسي بيتحرك — ثبّته في حائط الأول","النزول لتحت أوي بيجهد الكتف","الدفع بالرجلين بدل الدراع"]},
- {id:"fr_invrow", n:"تجديف مقلوب تحت ترابيزة", en:"Inverted Row", cat:"تمارين حرة", eq:"ترابيزة ثابتة أو بار واطي", sets:3, reps:"10–15", rest:60, vid:"", q:"inverted row bodyweight form",
+ {id:"fr_invrow", n:"تجديف مقلوب تحت ترابيزة", en:"Inverted Row", cat:"تمارين حرة", eq:"ترابيزة ثابتة أو بار واطي", sets:3, reps:"10–15", rest:60, vid:"", ig:"DD6zw8qohG5", iga:"reda_coach", igm:1, q:"inverted row bodyweight form",
   steps:["نام تحت ترابيزة ثابتة وامسك طرفها، وجسمك خط مستقيم وكعبك على الأرض.","اسحب صدرك ناحية الترابيزة واعصر لوحين كتفك.","انزل ببطء لحد ما دراعك يمتد وكرر — كل ما جسمك بقى أفقي أكتر، التمرين أصعب."],
   errs:["نزول الحوض لتحت","نص مدى حركة","اتأكد إن الترابيزة ثابتة وتستحمل وزنك قبل ما تبدأ"]},
  {id:"fr_superman", n:"سوبرمان (ظهر بوزن الجسم)", en:"Superman Hold", cat:"تمارين حرة", eq:"وزن الجسم", sets:3, reps:"12–15", rest:45, vid:"", q:"superman exercise back form",
   steps:["نام على بطنك ودراعك ممدود قدامك ورجلك مستقيمة.","ارفع دراعك وصدرك وفخدك عن الأرض في نفس الوقت بشد ضهرك ومؤخرتك.","اثبت ثانيتين فوق وانزل ببطء."],
   errs:["رفع الراس لفوق بعنف — رقبتك في امتداد ضهرك","حركات سريعة من غير ثبات فوق"]},
- {id:"fr_bulgarian", n:"سكوات بلغاري برجل واحدة", en:"Bulgarian Split Squat", cat:"تمارين حرة", eq:"كرسي أو كنبة", sets:3, reps:"10 لكل رجل", rest:60, vid:"", q:"bulgarian split squat bodyweight form",
+ {id:"fr_bulgarian", n:"سكوات بلغاري برجل واحدة", en:"Bulgarian Split Squat", cat:"تمارين حرة", eq:"كرسي أو كنبة", sets:3, reps:"10 لكل رجل", rest:60, vid:"", ig:"Ddz-lp9gKVB", iga:"squat_university", q:"bulgarian split squat bodyweight form",
   steps:["واقف وضهرك لكرسي وحاطط ضهر رجل واحدة عليه، والرجل الأمامية بعيدة خطوة.","انزل بجسمك لحد ما فخدك الأمامي يوازي الأرض وركبك في اتجاه صوابعك.","ادفع بالرجل الأمامية واطلع، وخلّص كل العدات وبعدين بدّل."],
   errs:["الركبة الأمامية تدخل لجوه","ميل الجذع لقدام بزيادة","الوقوف قريب أوي من الكرسي بيضغط على الركبة"]},
  {id:"fr_calf1", n:"سمانة برجل واحدة", en:"Single-Leg Calf Raise", cat:"تمارين حرة", eq:"درجة سلم", sets:3, reps:"12–15 لكل رجل", rest:45, vid:"", q:"single leg calf raise form",
@@ -2234,51 +2321,49 @@ const exById = id => EX.find(e=>e.id===id);
 
 const SYS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/></svg>';
 const SYSTEMS = [
- {id:"ppl", name:"Push Pull Legs", ar:"دفع – سحب – أرجل", days:"6 أيام / أسبوع", level:"متوسط لمتقدم", desc:"أشهر نظام لبناء العضل: يوم دفع (صدر وأكتاف وتراي)، يوم سحب (ضهر وباي)، يوم أرجل — ويتكرر.",
+ {id:"ppl", name:"Push Pull Legs", ar:"تجميعات العضلات الستة", days:"6 أيام / أسبوع", level:"متوسط لمتقدم", desc:"ستة أيام بتجميعات العضلات بالترتيب: ضهر+تراي، بنش+باي، كتف+باي، ضهر+بنش، باي+تراي، رجل+بطن — وكل يوم بيختم بترابيس وسواعد.",
   plan:[
-   {t:"اليوم 1 — دفع (Push)", ex:[["bench","4 × 6–10"],["incline","3 × 8–12"],["ohp","3 × 8–12"],["latraise","3 × 12–15"],["pushdown","3 × 10–15"]]},
-   {t:"اليوم 2 — سحب (Pull)", ex:[["deadlift","3 × 5–8"],["pulldown","3 × 10–12"],["seatedrow","3 × 10–12"],["facepull","3 × 15–20"],["curl","3 × 8–12"]]},
-   {t:"اليوم 3 — أرجل (Legs)", ex:[["squat","4 × 6–10"],["rdl","3 × 8–12"],["legpress","3 × 10–12"],["calf","4 × 12–15"]]},
-   {t:"اليوم 4 — دفع (تكرار)", ex:[["incline","4 × 8–12"],["bench","3 × 8–10"],["latraise","4 × 12–15"],["skull","3 × 10–12"]]},
-   {t:"اليوم 5 — سحب (تكرار)", ex:[["pullup","4 × قدر ما تقدر"],["bbrow","3 × 8–12"],["facepull","3 × 15–20"],["hammer","3 × 10–12"]]},
-   {t:"اليوم 6 — أرجل (تكرار)", ex:[["legpress","4 × 10–12"],["hipthrust","3 × 10–12"],["lunge","3 × 10 لكل رجل"],["calf","4 × 12–15"]]}
+   {t:"اليوم 1 — ضهر + تراي", ex:[["deadlift","3 × 5–8"],["pulldown","3 × 10–12"],["bbrow","3 × 8–12"],["pushdown","3 × 10–15"],["skull","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 2 — بنش + باي", ex:[["bench","4 × 6–10"],["incline","3 × 8–12"],["fly","3 × 12–15"],["curl","3 × 8–12"],["hammer","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 3 — كتف + باي", ex:[["ohp","4 × 8–12"],["latraise","3 × 12–15"],["reardelt","3 × 12–15"],["curl","3 × 10–12"],["hammer","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 4 — ضهر + بنش", ex:[["pullup","4 × قدر ما تقدر"],["seatedrow","3 × 10–12"],["facepull","3 × 15–20"],["bench","4 × 8–10"],["incline","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 5 — باي + تراي", ex:[["curl","3 × 10–12"],["pushdown","3 × 12–15"],["hammer","3 × 10–12"],["skull","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 6 — رجل + بطن", ex:[["squat","4 × 6–10"],["legpress","3 × 10–12"],["rdl","3 × 8–12"],["calf","4 × 12–15"],["cablecrunch","3 × 12–15"],["plank","3 × 45 ثانية"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]}
   ]},
- {id:"ul", name:"Upper / Lower", ar:"علوي – سفلي", days:"4 أيام / أسبوع", level:"مبتدئ لمتوسط", desc:"يوم للجزء العلوي ويوم للسفلي بالتبادل — توازن ممتاز بين الحجم والراحة.",
+ {id:"ul", name:"Upper / Lower", ar:"أربع تجميعات عضلات", days:"4 أيام / أسبوع", level:"مبتدئ لمتوسط", desc:"أربعة أيام بأول أربع تجميعات عضلات بالترتيب: ضهر+تراي، بنش+باي، كتف+باي، ضهر+بنش — وكل يوم بيختم بترابيس وسواعد.",
   plan:[
-   {t:"اليوم 1 — علوي (Upper A)", ex:[["bench","4 × 6–10"],["bbrow","4 × 8–12"],["ohp","3 × 8–12"],["curl","3 × 10–12"],["pushdown","3 × 10–15"]]},
-   {t:"اليوم 2 — سفلي (Lower A)", ex:[["squat","4 × 6–10"],["rdl","3 × 8–12"],["lunge","3 × 10 لكل رجل"],["calf","4 × 12–15"]]},
-   {t:"اليوم 3 — علوي (Upper B)", ex:[["incline","3 × 8–12"],["pullup","4 × قدر ما تقدر"],["latraise","3 × 12–15"],["hammer","3 × 10–12"],["skull","3 × 10–12"]]},
-   {t:"اليوم 4 — سفلي (Lower B)", ex:[["deadlift","3 × 5–8"],["legpress","3 × 10–12"],["hipthrust","3 × 10–12"],["calf","4 × 12–15"]]}
+   {t:"اليوم 1 — ضهر + تراي", ex:[["pulldown","3 × 10–12"],["seatedrow","3 × 10–12"],["deadlift","3 × 5–8"],["skull","3 × 10–12"],["pushdown","3 × 10–15"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 2 — بنش + باي", ex:[["bench","4 × 6–10"],["incline","3 × 8–12"],["fly","3 × 12–15"],["hammer","3 × 10–12"],["curl","3 × 8–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 3 — كتف + باي", ex:[["ohp","3 × 8–12"],["latraise","3 × 12–15"],["facepull","3 × 15–20"],["curl","3 × 10–12"],["hammer","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 4 — ضهر + بنش", ex:[["bbrow","3 × 8–12"],["pullup","4 × قدر ما تقدر"],["bench","4 × 8–10"],["incline","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]}
   ]},
- {id:"arnold", name:"Arnold Split", ar:"تقسيمة أرنولد", days:"6 أيام / أسبوع", level:"متقدم", desc:"نظام أرنولد شوارزنيجر الشهير: صدر وضهر مع بعض (عضلات متعاكسة)، أكتاف ودراع، وأرجل — مرتين أسبوعيًا.",
+ {id:"arnold", name:"Arnold Split", ar:"تجميعات العضلات الستة", days:"6 أيام / أسبوع", level:"متقدم", desc:"ستة أيام بتجميعات العضلات بالترتيب: ضهر+تراي، بنش+باي، كتف+باي، ضهر+بنش، باي+تراي، رجل+بطن — وكل يوم بيختم بترابيس وسواعد.",
   plan:[
-   {t:"اليوم 1 — صدر + ضهر", ex:[["bench","4 × 8–10"],["pullup","4 × قدر ما تقدر"],["incline","3 × 10–12"],["bbrow","3 × 10–12"],["fly","3 × 12–15"]]},
-   {t:"اليوم 2 — أكتاف + دراع", ex:[["ohp","4 × 8–12"],["latraise","3 × 12–15"],["reardelt","3 × 12–15"],["curl","3 × 10–12"],["skull","3 × 10–12"],["hammer","3 × 10–12"]]},
-   {t:"اليوم 3 — أرجل", ex:[["squat","4 × 8–10"],["rdl","3 × 10–12"],["legpress","3 × 12"],["lunge","3 × 10 لكل رجل"],["calf","4 × 15"]]},
-   {t:"اليوم 4 — صدر + ضهر (تكرار)", ex:[["incline","4 × 8–12"],["deadlift","3 × 5–8"],["pulldown","3 × 10–12"],["fly","3 × 12–15"]]},
-   {t:"اليوم 5 — أكتاف + دراع (تكرار)", ex:[["ohp","3 × 10–12"],["latraise","4 × 12–15"],["facepull","3 × 15–20"],["curl","4 × 10–12"],["pushdown","4 × 12–15"]]},
-   {t:"اليوم 6 — أرجل (تكرار)", ex:[["legpress","4 × 12"],["hipthrust","3 × 10–12"],["rdl","3 × 10–12"],["calf","4 × 15"]]}
+   {t:"اليوم 1 — ضهر + تراي", ex:[["pullup","4 × قدر ما تقدر"],["bbrow","3 × 10–12"],["pulldown","3 × 10–12"],["pushdown","3 × 12–15"],["skull","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 2 — بنش + باي", ex:[["incline","4 × 8–12"],["bench","3 × 8–10"],["fly","3 × 12–15"],["curl","3 × 10–12"],["hammer","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 3 — كتف + باي", ex:[["ohp","4 × 8–12"],["latraise","4 × 12–15"],["reardelt","3 × 12–15"],["curl","4 × 10–12"],["hammer","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 4 — ضهر + بنش", ex:[["deadlift","3 × 5–8"],["seatedrow","3 × 10–12"],["bench","4 × 8–10"],["fly","3 × 12–15"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 5 — باي + تراي", ex:[["curl","3 × 10–12"],["skull","3 × 10–12"],["hammer","3 × 10–12"],["pushdown","3 × 12–15"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 6 — رجل + بطن", ex:[["squat","4 × 8–10"],["legpress","3 × 12"],["rdl","3 × 10–12"],["calf","4 × 15"],["cablecrunch","3 × 12–15"],["plank","3 × 45 ثانية"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]}
   ]},
- {id:"fb", name:"Full Body", ar:"جسم كامل", days:"3 أيام / أسبوع", level:"مبتدئ", desc:"كل عضلات الجسم في كل تمرينة — الأفضل للمبتدئين واللي وقتهم قليل.",
+ {id:"fb", name:"Full Body", ar:"ثلاث تجميعات عضلات", days:"3 أيام / أسبوع", level:"مبتدئ", desc:"ثلاثة أيام بأول ثلاث تجميعات عضلات بالترتيب: ضهر+تراي، بنش+باي، كتف+باي — وكل يوم بيختم بترابيس وسواعد.",
   plan:[
-   {t:"اليوم 1 — جسم كامل A", ex:[["squat","3 × 8–10"],["bench","3 × 8–10"],["bbrow","3 × 10–12"],["plank","3 × 45 ثانية"]]},
-   {t:"اليوم 2 — جسم كامل B", ex:[["deadlift","3 × 6–8"],["ohp","3 × 8–12"],["pulldown","3 × 10–12"],["lunge","3 × 10 لكل رجل"]]},
-   {t:"اليوم 3 — جسم كامل C", ex:[["legpress","3 × 10–12"],["incline","3 × 10–12"],["seatedrow","3 × 10–12"],["curl","2 × 12"],["pushdown","2 × 12–15"]]}
+   {t:"اليوم 1 — ضهر + تراي", ex:[["deadlift","3 × 6–8"],["pulldown","3 × 10–12"],["pushdown","3 × 12–15"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 2 — بنش + باي", ex:[["bench","3 × 8–10"],["incline","3 × 10–12"],["curl","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 3 — كتف + باي", ex:[["ohp","3 × 8–12"],["latraise","3 × 12–15"],["hammer","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]}
   ]},
- {id:"bro", name:"Bro Split", ar:"عضلة كل يوم", days:"5 أيام / أسبوع", level:"متوسط", desc:"كل يوم عضلة واحدة بتركيز وحجم عالي — الأسلوب الكلاسيك بتاع لاعيبة كمال الأجسام.",
+ {id:"bro", name:"Bro Split", ar:"خمس تجميعات عضلات", days:"5 أيام / أسبوع", level:"متوسط", desc:"خمسة أيام بأول خمس تجميعات عضلات بالترتيب: ضهر+تراي، بنش+باي، كتف+باي، ضهر+بنش، باي+تراي — وكل يوم بيختم بترابيس وسواعد.",
   plan:[
-   {t:"اليوم 1 — صدر", ex:[["bench","4 × 8–10"],["incline","3 × 10–12"],["fly","3 × 12–15"],["pushup","3 × لحد الإجهاد"]]},
-   {t:"اليوم 2 — ضهر", ex:[["deadlift","4 × 6–8"],["pullup","3 × قدر ما تقدر"],["bbrow","3 × 10–12"],["seatedrow","3 × 12"],["facepull","3 × 15–20"]]},
-   {t:"اليوم 3 — أكتاف", ex:[["ohp","4 × 8–12"],["latraise","4 × 12–15"],["reardelt","3 × 12–15"],["facepull","3 × 15–20"]]},
-   {t:"اليوم 4 — دراع", ex:[["curl","3 × 10–12"],["hammer","3 × 10–12"],["pushdown","3 × 12–15"],["skull","3 × 10–12"]]},
-   {t:"اليوم 5 — أرجل", ex:[["squat","4 × 8–10"],["legpress","3 × 12"],["rdl","3 × 10–12"],["lunge","3 × 10 لكل رجل"],["calf","4 × 15"]]}
+   {t:"اليوم 1 — ضهر + تراي", ex:[["deadlift","4 × 6–8"],["pullup","3 × قدر ما تقدر"],["bbrow","3 × 10–12"],["seatedrow","3 × 12"],["pushdown","3 × 12–15"],["skull","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 2 — بنش + باي", ex:[["bench","4 × 8–10"],["incline","3 × 10–12"],["fly","3 × 12–15"],["pushup","3 × لحد الإجهاد"],["curl","3 × 10–12"],["hammer","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 3 — كتف + باي", ex:[["ohp","4 × 8–12"],["latraise","4 × 12–15"],["reardelt","3 × 12–15"],["facepull","3 × 15–20"],["curl","3 × 10–12"],["hammer","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 4 — ضهر + بنش", ex:[["pulldown","3 × 10–12"],["bbrow","3 × 10–12"],["bench","4 × 8–10"],["incline","3 × 10–12"],["fly","3 × 12–15"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 5 — باي + تراي", ex:[["curl","3 × 10–12"],["pushdown","3 × 12–15"],["hammer","3 × 10–12"],["skull","3 × 10–12"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]}
   ]},
- {id:"ap", name:"Anterior / Posterior", ar:"أمامي – خلفي", days:"4 أيام / أسبوع", level:"متوسط", desc:"يوم للعضلات الأمامية (صدر، كتف أمامي، باي، فخد أمامي) ويوم للخلفية (ضهر، كتف خلفي، تراي، خلفية الفخد والمؤخرة) — تقسيمة ذكية بتحمي الكتف وبتوازن الجسم.",
+ {id:"ap", name:"Anterior / Posterior", ar:"أمامي / خلفي — تقسيمة خاصة", days:"2 يوم / أسبوع (أمامي + خلفي)", level:"متوسط", desc:"نظام الأمامي والخلفي ليه تقسيمته الخاصة — مش تجميعات الأنظمة التانية: يوم أمامي (كتف أمامي+باي، بنش+كتف جانبي، بطن+أماميات) ويوم خلفي (كتف خلفي+تراي، ضهر+ضهر سفلي، خلفيات+بلانك) — وكل يوم بيختم بترابيس وسواعد.",
   plan:[
-   {t:"اليوم 1 — أمامي (Anterior A)", ex:[["bench","4 × 8–10"],["squat","4 × 8–10"],["ohp","3 × 10–12"],["legpress","3 × 12"],["curl","3 × 10–12"]]},
-   {t:"اليوم 2 — خلفي (Posterior A)", ex:[["deadlift","4 × 6–8"],["pullup","3 × قدر ما تقدر"],["hipthrust","3 × 10–12"],["facepull","3 × 15–20"],["pushdown","3 × 12–15"]]},
-   {t:"اليوم 3 — أمامي (Anterior B)", ex:[["incline","3 × 10–12"],["lunge","3 × 10 لكل رجل"],["latraise","3 × 12–15"],["fly","3 × 12–15"],["hammer","3 × 10–12"]]},
-   {t:"اليوم 4 — خلفي (Posterior B)", ex:[["rdl","3 × 10–12"],["bbrow","3 × 10–12"],["seatedrow","3 × 12"],["reardelt","3 × 12–15"],["calf","4 × 15"],["skull","3 × 10–12"]]}
+   {t:"اليوم 1 — أمامي Anterior", pairs:["كتف أمامي + باي","بنش + كتف جانبي","بطن + أماميات"], ex:[["ohp","4 × 8–12"],["curl","3 × 10–12"],["bench","4 × 6–10"],["latraise","3 × 12–15"],["cablecrunch","3 × 12–15"],["squat","4 × 6–10"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]},
+   {t:"اليوم 2 — خلفي Posterior", pairs:["كتف خلفي + تراي","ضهر + ضهر سفلي","خلفيات + بلانك"], ex:[["reardelt","3 × 12–15"],["pushdown","3 × 10–15"],["bbrow","3 × 8–12"],["backext","3 × 12"],["rdl","3 × 8–12"],["plank","3 × 45 ثانية"],["vip_kelso","2 × 8–12"],["vip_rev_curl","2 × 8–12"],["vip_wrist","2 × 10–12"]]}
   ]},
  {id:"vip", name:"VIP Split", ar:"النسخة المعدّلة من Shadad Split", days:"5 أيام تدريب + يومان راحة (دورة)", level:"متوسط لمتقدم", vip:true,
   desc:"النسخة المعدّلة من Shadad Split: 5 أيام تدريب + يومان راحة بترتيب ثابت — الدورة ممكن تاخد 8–9 أيام، المهم الترتيب مش الأسبوع.",
@@ -2686,7 +2771,7 @@ $$("[data-goto]").forEach(b=>b.addEventListener("click", ()=>{ go(b.dataset.goto
 let currentMode="all";
 let modeChosen=false;
 let heroMode=false;
-const ALL_VIEWS=["home","systems","exercises","crossfit","posture","nutrition","man","workout"];
+const ALL_VIEWS=["home","systems","exercises","crossfit","posture","nutrition","man","mobility","workout"];
 const MODE_INFO={
  hero:{t:"Hero Mode — وضع الأبطال", view:"systems", cats:["صدر","ظهر","أكتاف","ذراعين","أرجل","بطن"], views:["systems","exercises","workout"]},
  gym:{t:"جيم", view:"systems", cats:["صدر","ظهر","أكتاف","ذراعين","أرجل","بطن"], views:["systems","exercises","workout"]},
@@ -2696,6 +2781,7 @@ const MODE_INFO={
  posture:{t:"تصحيح قوام", view:"posture", cats:["تصحيح وضعيات","إطالات ومرونة"], views:["posture","workout"]},
  nutrition:{t:"تغذية ومكملات", view:"nutrition", cats:null, views:["nutrition"]},
  man:{t:"Man Section — تمارين كيجل للرجال", view:"man", cats:null, views:["man"]},
+ mobility:{t:"ريح جسمك وحسن حركتك", view:"mobility", cats:null, views:["mobility"]},
  all:{t:"كل حاجة", view:"home", cats:null, views:ALL_VIEWS}
 };
 function modeCats(){ const m=MODE_INFO[currentMode]; return m ? m.cats : null; }
@@ -2740,7 +2826,7 @@ function applyMode(key){
   setAllSupersets(key==="hero");
   go(MODE_INFO[key].view);
   toast(key==="hero"
-    ? "وضع الأبطال مفعّل — السوبر سيت شغّال لكل التمارين: كل عضلتين مع بعض من غير راحة"
+    ? "وضع الأبطال مفعّل — السوبر سيت شغّال في كل الأنظمة: A1 + A2 من غير راحة، والراحة 90–120 ثانية بعد كل زوج"
     : "تمام — وضع "+MODE_INFO[key].t+": القسم ده بس اللي مفتوح");
 }
 $$("#modePicker [data-mode]").forEach(b=>b.addEventListener("click", ()=>applyMode(b.dataset.mode)));
@@ -2748,9 +2834,13 @@ $("#changeMode").addEventListener("click", showModePicker);
 const pickerBack=$("#modePickerBack"); if(pickerBack) pickerBack.addEventListener("click", hideModePicker);
 
 /* ---------- ENTRY FLOW — STEP 1: WARM-UP GATE (التسخين أول حاجة) ----------
-   The session order is fixed: 1) warm-up, 2) the workout itself,
-   3) re-rack the weights, 4) cool-down stretches. Right after the
-   intro — before the mode picker — comes the GENERAL warm-up gate.
+   Entry goes straight from the intro to the mode picker — the
+   warm-up is NOT a gate anymore (user direction 2026-11-21: nobody
+   is forced through the warm-ups, or through a whole day in order,
+   just to log a set). The warm-up stays available, optional, inside
+   every training day and at the top of a full-day workout. The
+   GENERAL warm-up gate below is kept in code but is no longer
+   shown automatically on entry.
    There is no per-muscle and no per-system warm-up: the general
    warm-up is split into exactly two halves — Upper (أبر: الجزء
    العلوي كله — صدر وظهر وأكتاف وذراعين) and Lower (لور: الجزء
@@ -2917,14 +3007,14 @@ function enterGym(){
   const i=$("#intro");
   setTimeout(()=>{
     i.classList.add("open");
-    setTimeout(()=>{ i.classList.add("gone"); showWarmupGate(); }, 2050);
+    setTimeout(()=>{ i.classList.add("gone"); showModePicker(); }, 2050);
   }, 780);
 }
 pickIntroQuote();
 /* Entry is by tapping the logo medallion itself (no button). */
 $("#doorLift").addEventListener("click", enterGym);
 $("#doorLift").addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); enterGym(); } });
-$("#skipIntro").addEventListener("click", ()=>{ introDone=true; $("#intro").classList.add("gone"); showWarmupGate(); });
+$("#skipIntro").addEventListener("click", ()=>{ introDone=true; $("#intro").classList.add("gone"); showModePicker(); });
 $("#replayIntro").addEventListener("click", ()=>{
   introDone=false; hideModePicker(); hideWarmupGate(); const i=$("#intro"); i.classList.remove("gone"); void i.offsetWidth; i.classList.remove("open"); $("#doorLift").classList.remove("spinning");
   pickIntroQuote();
@@ -3114,6 +3204,14 @@ function vipExtraHTML(){
     </ul></details></div>`;
 }
 let supersetMode = {};
+/* Per-day superset toggle (user direction 2026-11-21): every day page
+   carries its own round button switching THAT day between normal and
+   superset, independent of Hero Mode's global switch. */
+let daySuperset = {};
+/* A superset pair is named by the precise target muscle of each of its
+   two exercises (EX_ANIM label — البايسبس / الترايسبس …), falling back
+   to the exercise category. */
+function pairMuscleName(e){ const m=(typeof EX_ANIM!=="undefined" && e) ? EX_ANIM[e.id] : null; return (m && m[2]) ? m[2] : (e ? e.cat : ""); }
 function exRowHTML(sys, day, di, entry, abLabel){
   const isVip = entry && typeof entry==="object" && !Array.isArray(entry);
   const id = isVip ? entry.id : entry[0];
@@ -3137,7 +3235,7 @@ function exRowHTML(sys, day, di, entry, abLabel){
     <div style="min-width:0"><div class="nm">${esc(e.n)} <span class="ex-en">${esc(e.en)}</span> <span class="tag" style="color:${catColor(e.cat)}">${esc(e.cat)}</span></div>${dt}<div class="dt"><span class="muscle-line">العضلة: ${esc(CAT_TARGET[e.cat]||e.cat)}</span></div></div>
     <div class="acts">
       <button class="mini-btn" data-video="${e.id}" type="button">شرح بالفيديو</button>
-      <button class="mini-btn acc" data-start="${sys.id}:${di}:${e.id}" type="button">أضف</button>
+      <button class="mini-btn acc" data-start="${sys.id}:${di}:${e.id}" type="button">سجّل الوزن والعدّات</button>
     </div>${freeLine}</div>`;
 }
 /* Core finisher — two rotating core exercises (abs / obliques / lower
@@ -3160,9 +3258,9 @@ function dayHTML(sys, day, di){
   if(day.restDay){
     return `<div class="rest-day"><b>${esc(day.t)}</b><div class="small muted">يوم راحة واستشفاء — مفيش تمرين. أيام الراحة جزء من الخطة، خدها حتى لو حاسس إنك كويس.</div></div>`;
   }
-  /* Superset pairing inside a system exists ONLY in Hero Mode — in the
-     regular gym mode days always render as a plain exercise list. */
-  const useSS = heroMode && !!supersetMode[sys.id];
+  /* A day renders as superset pairs when Hero Mode's global switch is
+     on for its system, OR when the day's own toggle button was used. */
+  const useSS = (heroMode && !!supersetMode[sys.id]) || !!daySuperset[sys.id+":"+di];
   let rows;
   if(!useSS){
     rows = day.ex.map(entry=>exRowHTML(sys, day, di, entry, null)).join("");
@@ -3172,12 +3270,12 @@ function dayHTML(sys, day, di){
       const a=day.ex[i], b=day.ex[i+1];
       const ea=exById((a && typeof a==="object" && !Array.isArray(a))?a.id:a[0]);
       if(!b){
-        parts.push(`<div class="ss-pair"><div class="ss-pair-head"><span class="ss-badge">تمرين منفرد</span><b>${esc(ea.cat)}</b><span class="ss-rest-note">آخر تمرين في اليوم — العبه عادي وارتاح بعده طبيعي</span></div>${exRowHTML(sys, day, di, a, null)}</div>`);
+        parts.push(`<div class="ss-pair"><div class="ss-pair-head"><span class="ss-badge">تمرين منفرد</span><b>${esc(pairMuscleName(ea))}</b><span class="ss-rest-note">آخر تمرين في اليوم — العبه عادي وارتاح بعده طبيعي</span></div>${exRowHTML(sys, day, di, a, null)}</div>`);
       } else {
         const eb=exById((b && typeof b==="object" && !Array.isArray(b))?b.id:b[0]);
         const pairNo = Math.floor(i/2)+1;
         const sameCat = ea.cat===eb.cat;
-        parts.push(`<div class="ss-pair"><div class="ss-pair-head"><span class="ss-badge">سوبر سيت Superset ${pairNo}</span><b>${esc(ea.cat)} + ${esc(eb.cat)}</b><span class="ss-rest-note">${sameCat?"عضلة واحدة بزاويتين مختلفتين — كثافة أعلى":"عضلتين مع بعض"} · بدون راحة بينهم · الراحة 90–120 ث بعد الزوج</span></div>${exRowHTML(sys, day, di, a, "A")}<div class="ss-link-note">↓ بدون راحة — ادخل على التمرين اللي بعده على طول ↓</div>${exRowHTML(sys, day, di, b, "B")}</div>`);
+        parts.push(`<div class="ss-pair"><div class="ss-pair-head"><span class="ss-badge">سوبر سيت Superset ${pairNo} — A1 + A2</span><b>${esc((day.pairs && day.pairs[pairNo-1]) || (pairMuscleName(ea)+" + "+pairMuscleName(eb)))}</b><span class="ss-rest-note">${sameCat?"عضلة واحدة بزاويتين مختلفتين — كثافة أعلى":"عضلتين مع بعض"} · بدون راحة بينهم</span></div>${exRowHTML(sys, day, di, a, "A")}<div class="ss-link-note">↓ بدون راحة — ادخل على التمرين اللي بعده على طول ↓</div>${exRowHTML(sys, day, di, b, "B")}<div class="ss-rest-bar">راحة بعد الزوج: <b>90–120 ثانية</b> — اتنفس وارجع لـ A1</div></div>`);
       }
     }
     rows = parts.join("");
@@ -3189,7 +3287,8 @@ function dayHTML(sys, day, di){
   const cdNote = "اثبت في كل إطالة واتنفس بهدوء — بتخفف الشد ووجع تاني يوم";
   return `<div class="day"><h4>${esc(day.t)}${useSS?` <span class="ss-badge">وضع السوبر سيت شغّال</span>`:""}
     <button class="mini-btn acc" data-startday="${sys.id}:${di}" type="button" style="margin-inline-start:auto">${useSS?"ابدأ اليوم كله — سوبر سيت":"ابدأ اليوم كله"}</button>
-    <button class="mini-btn" data-freeday="${sys.id}:${di}" type="button">العب اليوم بالبدائل الحرة</button></h4>${stretchBlockHTML("wu", dayWarmup(sys, day, di), wuTitle, wuNote)}${rows}${coreFinHTML(sys, day, di)}${stretchBlockHTML("cd", dayCooldown(sys, day, di), cdTitle, cdNote)}</div>`;
+    <button class="mini-btn" data-freeday="${sys.id}:${di}" type="button">العب اليوم بالبدائل الحرة</button>
+    <button class="ss-toggle-btn${useSS?" on":""}" data-sstoggle="${sys.id}:${di}" type="button">${useSS?"سوبر سيت — بدّل للعادي":"عادي — بدّل لسوبر سيت"}</button></h4>${stretchBlockHTML("wu", dayWarmup(sys, day, di), wuTitle, wuNote)}${rows}${coreFinHTML(sys, day, di)}${stretchBlockHTML("cd", dayCooldown(sys, day, di), cdTitle, cdNote)}</div>`;
 }
 function sysDaysHTML(sys){
   return sys.plan.map((d,di)=>dayHTML(sys,d,di)).join("") + (sys.vip? vipExtraHTML():"");
@@ -3212,6 +3311,18 @@ function refreshSystemDays(sysId){
   const sys = SYSTEMS.find(s=>s.id===sysId); if(!sys) return;
   $$(`[data-days-for="${sysId}"]`).forEach(el=>{ el.innerHTML = sysDaysHTML(sys); });
 }
+/* ---------- SUPERSET PAIRINGS LIVE IN THE SYSTEMS ----------
+   There is no standalone superset split anymore (user direction
+   2026-11-21): the muscle pairings (ضهر+تراي، بنش+باي، كتف+باي،
+   ضهر+بنش، باي+تراي، رجل+بطن) are the day structure of the
+   training systems themselves, every day closes with traps +
+   forearms, and each day page carries its own superset/normal
+   toggle (see dayHTML / daySuperset).
+   EXCEPTION (user direction 2026-11-21): Anterior/Posterior does
+   NOT take those pairings — it keeps its own anterior/posterior
+   split (anterior day: front delt+biceps, bench+side delt,
+   abs+quads; posterior day: rear delt+triceps, back+lower back,
+   hamstrings+plank) with explicit pair names in day.pairs. */
 $("#systemsList").innerHTML = SYSTEMS.map((s,i)=>sysCard(s, false, i)).join("");
 $("#homeSystems").innerHTML = SYSTEMS.slice(0,3).map((s,i)=>sysCard(s,false,i)).join("");
 document.addEventListener("click", e=>{
@@ -5002,10 +5113,28 @@ function openExercise(id, nav){
      and the drawn side-model GIF are all out of the sheet; the
      movement is explained by the real-people YouTube frames GIF
      and the YouTube player in the media block. */
-  /* Primary explanation = a real YouTube video: live thumbnail + a play
-     button that builds the player on tap, with a sets×reps chip over the
-     video like the 3D anatomy shorts, and a direct watch link below it. */
-  const vidBlock = e.vid ? `
+  /* Primary explanation video (Instagram mapping v2, 2026-11-21):
+     exercises mapped to an Instagram reel (e.ig — 77 of 147) get the
+     reel embedded right here, Instagram-embed style like the mobility
+     flow, with an «افتح الريل على إنستجرام» button under it as the
+     fallback when the embed does not load, the source account named,
+     a 3D-model flag where the reel is an anatomical model, and a note
+     naming the required exercise when the reel holds more than one
+     movement (e.igm / e.ign). The other 70 exercises keep the real
+     YouTube video below: live thumbnail + a play button that builds
+     the player on tap, with a sets×reps chip over the video like the
+     3D anatomy shorts, and a direct watch link below it. The YouTube
+     vid is kept on mapped exercises too — it still feeds the
+     real-people frames GIF above. */
+  const vidBlock = e.ig ? `
+    <span class="anim-badge">شرح بالفيديو — ريل إنستجرام</span>
+    <div class="ig-frame">
+      <iframe src="https://www.instagram.com/reel/${e.ig}/embed/captioned/" title="شرح ${esc(e.n)} — ريل إنستجرام" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer" loading="lazy" scrolling="no" allowfullscreen></iframe>
+    </div>
+    <a class="yt-open" href="https://www.instagram.com/reel/${e.ig}/" target="_blank" rel="noopener">افتح الريل على إنستجرام</a>
+    <p class="small muted" style="text-align:center; margin:8px 0 0">الفيديو من <span dir="ltr">@${esc(e.iga||"")}</span>${e.ig3?` — <b>مجسم تشريحي 3D</b>: الجسم بعضلاته والعضلة الشغالة ملوّنة`:""}</p>
+    ${e.igm?`<p class="ig-note">الريل ده فيه أكتر من حركة — الحركة المطلوبة هنا: <b>${esc(e.n)}</b></p>`:""}
+    ${e.ign?`<p class="ig-note">${esc(e.ign)}</p>`:""}` : e.vid ? `
     <span class="anim-badge">شرح بالفيديو — دوس تشغيل</span>
     <div class="yt-wrap" id="ytWrap">
       <button type="button" class="yt-thumb" id="ytPlayBtn" aria-label="تشغيل فيديو شرح ${esc(e.n)}">
@@ -5414,7 +5543,8 @@ function addExerciseToWorkout(id, setsCount){
   ensureWorkout();
   if(workout.items.some(i=>i.id===id)){ toast("التمرين ده موجود في تمرينتك بالفعل"); go("workout"); return; }
   const n = setsCount || e.sets;
-  workout.items.push({id, open:false, goalParts:{wu:null, work:n, reps:e.reps, rir:null, rest:e.rest+" ث"}, restSec:e.rest, sets:Array.from({length:n}, newSet)});
+  workout.items.forEach(x=>x.open=false);
+  workout.items.push({id, open:true, goalParts:{wu:null, work:n, reps:e.reps, rir:null, rest:e.rest+" ث"}, restSec:e.rest, sets:Array.from({length:n}, newSet)});
   renderWorkout(); updateStats();
   toast("اتضاف «"+e.n+"» لتمرينتك");
   go("workout");
@@ -5423,8 +5553,9 @@ function startDay(sysId, di, focusId, freeMode){
   const sys = SYSTEMS.find(s=>s.id===sysId); if(!sys) return;
   const day = sys.plan[di];
   if(day.restDay){ toast("ده يوم راحة — مفيش تمرين النهاردة"); return; }
-  /* A workout is a superset workout ONLY when started from Hero Mode. */
-  const useSS = heroMode && !!supersetMode[sysId];
+  /* A workout is a superset workout when Hero Mode's global switch is
+     on for the system, or when this day's own toggle was switched on. */
+  const useSS = (heroMode && !!supersetMode[sysId]) || !!daySuperset[sysId+":"+di];
   workout = {title: sys.name+" — "+day.t + (useSS?" — سوبر سيت":"") + (freeMode?" — نسخة حرة (بدائل بوزن الجسم)":""), superset:useSS, items: day.ex.map((rawEntry, idx)=>{
     let entry = rawEntry;
     if(freeMode){
@@ -5435,16 +5566,17 @@ function startDay(sysId, di, focusId, freeMode){
     const ssGroup = useSS ? Math.floor(idx/2)+1 : null;
     const ssPos = useSS ? (idx%2===0 ? "A" : "B") : null;
     const ssHasPair = useSS ? (idx%2===0 ? !!day.ex[idx+1] : true) : false;
+    const ssPairName = (useSS && day.pairs) ? (day.pairs[Math.floor(idx/2)]||null) : null;
     const isVip = entry && typeof entry==="object" && !Array.isArray(entry);
     if(isVip){
       const n = Math.min(Math.max(entry.work||1,1),6);
-      return {id:entry.id, open:false, ssGroup, ssPos, ssHasPair, goalParts:{wu:(entry.wu==null?null:entry.wu), work:entry.work, reps:entry.reps, rir:entry.rir, rest:entry.rest}, restSec: useSS?105:entry.restSec, sets:Array.from({length:n}, newSet)};
+      return {id:entry.id, open:false, ssGroup, ssPos, ssHasPair, ssPairName, goalParts:{wu:(entry.wu==null?null:entry.wu), work:entry.work, reps:entry.reps, rir:entry.rir, rest:entry.rest}, restSec: useSS?105:entry.restSec, sets:Array.from({length:n}, newSet)};
     }
     const [id,pr] = entry;
     const m = String(pr).match(/^(\d+)/); const n = m? parseInt(m[1],10) : exById(id).sets;
     const e0 = exById(id);
     const repsPart = String(pr).includes("×") ? String(pr).split("×")[1].trim() : String(pr);
-    return {id, open:false, ssGroup, ssPos, ssHasPair, goalParts:{wu:null, work:n, reps:repsPart, rir:null, rest: useSS?"بعد الزوج 90–120 ث":e0.rest+" ث"}, restSec: useSS?105:e0.rest, sets:Array.from({length:Math.min(Math.max(n,1),6)}, newSet)};
+    return {id, open:false, ssGroup, ssPos, ssHasPair, ssPairName, goalParts:{wu:null, work:n, reps:repsPart, rir:null, rest: useSS?"بعد الزوج 90–120 ث":e0.rest+" ث"}, restSec: useSS?105:e0.rest, sets:Array.from({length:Math.min(Math.max(n,1),6)}, newSet)};
   })};
   /* core finisher goes into the workout too — last two items of the day */
   coreFinisherFor(sys, di).forEach(([fid, pr])=>{
@@ -5468,6 +5600,74 @@ function startDay(sysId, di, focusId, freeMode){
   renderWorkout(); updateStats(); go("workout");
   toast("بدأت: "+day.t);
 }
+/* ---------- QUICK LOG — سجّل تمرين واحد لوحده، بأي ترتيب ----------
+   Tapping «سجّل الوزن والعدّات» on any exercise inside a split day
+   opens ONLY that exercise, already expanded, with its weight/reps
+   inputs ready. No whole day is loaded, no warm-up or cool-down is
+   attached, and the day's order does not matter: the exercise is
+   added to the current workout (or a fresh quick-log workout) and
+   can be saved to the history on its own via saveOneExercise. */
+function quickLog(sysId, di, id){
+  const sys = SYSTEMS.find(s=>s.id===sysId);
+  const day = sys ? sys.plan[di] : null;
+  const e = exById(id); if(!e) return;
+  if(workout && workout.items.some(i=>i.id===id)){
+    const it = workout.items.find(i=>i.id===id);
+    workout.items.forEach(x=>x.open=false); it.open=true;
+    renderWorkout(); go("workout");
+    toast("سجّل وزن وعدّات «"+e.n+"» وبعدين دوس «حفظ التمرين ده في السجل»");
+    return;
+  }
+  let item=null;
+  if(day && !day.restDay){
+    const raw = day.ex.find(en=>{ const eid=(en && typeof en==="object" && !Array.isArray(en)) ? en.id : en[0]; return eid===id; });
+    if(raw && typeof raw==="object" && !Array.isArray(raw)){
+      const n = Math.min(Math.max(raw.work||1,1),6);
+      item = {id, open:true, goalParts:{wu:(raw.wu==null?null:raw.wu), work:raw.work, reps:raw.reps, rir:raw.rir, rest:raw.rest}, restSec:raw.restSec, sets:Array.from({length:n}, newSet)};
+    } else if(raw){
+      const pr = raw[1];
+      const m = String(pr).match(/^(\d+)/); const n = m? parseInt(m[1],10) : e.sets;
+      const repsPart = String(pr).includes("×") ? String(pr).split("×")[1].trim() : String(pr);
+      item = {id, open:true, goalParts:{wu:null, work:n, reps:repsPart, rir:null, rest:e.rest+" ث"}, restSec:e.rest, sets:Array.from({length:Math.min(Math.max(n,1),6)}, newSet)};
+    }
+    if(!item && sys){
+      const cf = coreFinisherFor(sys, di).find(([cid])=>cid===id);
+      if(cf){
+        const pr = cf[1];
+        const m = String(pr).match(/^(\d+)/); const n = m? parseInt(m[1],10) : e.sets;
+        const repsPart = String(pr).includes("×") ? String(pr).split("×")[1].trim() : String(pr);
+        item = {id, open:true, goalParts:{wu:null, work:n, reps:repsPart, rir:null, rest:e.rest+" ث"}, restSec:e.rest, sets:Array.from({length:Math.min(Math.max(n,1),6)}, newSet)};
+      }
+    }
+  }
+  if(!item) item = {id, open:true, goalParts:{wu:null, work:e.sets, reps:e.reps, rir:null, rest:e.rest+" ث"}, restSec:e.rest, sets:Array.from({length:e.sets}, newSet)};
+  if(!workout || !workout.items.length){
+    workout = {title: (sys? sys.name+" — " : "") + (day? day.t+" — " : "") + "تسجيل سريع", items:[item]};
+  } else {
+    workout.items.forEach(x=>x.open=false);
+    workout.items.push(item);
+  }
+  renderWorkout(); updateStats(); go("workout");
+  toast("سجّل «"+e.n+"»: اكتب الوزن والعدّات لكل مجموعة لعبتها");
+}
+/* Save ONE exercise to the history right away — filled sets (weight
+   or reps typed) count as done, so the user does not even have to
+   tick «تم» first. The rest of the workout stays untouched. */
+function saveOneExercise(ii){
+  if(!workout) return;
+  const it = workout.items[ii]; if(!it) return;
+  it.sets.forEach(s=>{ if(!s.done && (String(s.w).trim()!=="" || String(s.r).trim()!=="")) s.done=true; });
+  const d = it.sets.filter(s=>s.done);
+  if(!d.length){ toast("اكتب الوزن والعدّات الأول، أو علّم على مجموعة «تم»"); return; }
+  const e = exById(it.id);
+  const vol = d.reduce((x,s)=> x + (parseFloat(s.w)||0)*(parseInt(s.r)||0), 0);
+  history.unshift({title: workout.title+" — "+e.n, date:new Date(), sets:d.length, volume:Math.round(vol),
+    detail:[`${e.n} (${e.en}): ${d.map(s=>`${s.w||0}كجم×${s.r||0}`).join("، ")}`]});
+  workout.items.splice(ii,1);
+  if(!workout.items.length) workout=null;
+  renderWorkout(); renderHistory(); updateStats();
+  toast("اتسجّل «"+e.n+"» في السجل — عاش يا وحش");
+}
 function goalGridHTML(it, e){
   const g = it.goalParts || {wu:null, work:e.sets, reps:e.reps, rir:null, rest:e.rest+" ث"};
   const stats = [
@@ -5485,25 +5685,26 @@ function renderWorkout(){
   $("#wkBadge").classList.toggle("show", !!(workout && workout.items.length));
   if(!workout || !workout.items.length){
     box.innerHTML = `<div class="empty"><b style="color:var(--ink)">مفيش تمرينة شغالة دلوقتي</b><br>
-      ابدأ من <b>الأنظمة</b> باختيار يوم كامل، أو من <b>التمارين</b> ضيف التمارين اللي تعجبك، أو ابدأ تمرينة حرة:<br><br>
+      من <b>الأنظمة</b> دوس «سجّل الوزن والعدّات» على أي تمرين لوحده وهتفتح لك خانات التسجيل على طول — أو دوس «ابدأ اليوم كله» لو عايز اليوم كامل. ومن <b>التمارين</b> تقدر تضيف أي تمرين يعجبك، أو ابدأ تمرينة حرة:<br><br>
       <button class="btn" id="freeStart" type="button">تمرينة حرة جديدة</button></div>`;
     const fs=$("#freeStart"); if(fs) fs.addEventListener("click", ()=>{ workout={title:"تمرينة حرة", items:[]}; go("exercises"); toast("اختار تمارينك من المكتبة وضيفها"); });
     return;
   }
   box.innerHTML = `<div class="card" style="margin-bottom:14px">
-    <span class="flow-tag" style="margin-bottom:10px">الخطوة 2 من 4 — التمرين</span>
+    <span class="flow-tag" style="margin-bottom:10px">تمرينتك — سجّل بأي ترتيب</span>
     <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap">
       <h3 style="font-weight:900; font-size:1.1rem">${esc(workout.title)}</h3>
       <span class="chip">${workout.items.length} تمرين</span>
       <button class="btn sm red" id="discardWk" type="button" style="margin-inline-start:auto">إلغاء التمرينة</button>
     </div>
+    <p class="small muted" style="margin:8px 0 0">العب وسجّل بأي ترتيب يعجبك — مش لازم تبدأ من أول تمرين، ومش لازم تعمل الإحماء ولا تخلّص اليوم كله عشان التسجيل يتحفظ. افتح أي تمرين، اكتب لعبت بوزن كام وكام عدّة في كل مجموعة، ودوس «حفظ التمرين ده في السجل» وهيتسجّل على طول.</p>
     ${workout.superset?`<div class="wk-ss-head" style="margin-top:12px"><span class="ss-badge">وضع السوبر سيت Superset</span><span class="small">العب <b>A</b> وبعده <b>B</b> على طول من غير راحة — مجموعة من ده ومجموعة من ده بالتبادل — وارتاح 90–120 ثانية بعد ما تخلّص الزوج، وكرر لحد ما تخلّص كل المجموعات.</span></div>`:""}
     ${(workout.stretch && workout.stretch.wu.length)? stretchBlockHTML("wu", workout.stretch.wu, workout.stretch.wuTitle || "إحماء قبل ما تبدأ", workout.stretch.wuNote || "") : ""}
     ${workout.items.map((it,ii)=>{ const e=exById(it.id); const doneN=it.sets.filter(s=>s.done).length;
     let ssHead="";
     if(workout.superset && it.ssPos==="A" && it.ssHasPair){
       const partner = workout.items[ii+1]; const pe = partner?exById(partner.id):null;
-      ssHead = `<div class="wk-ss-head"><span class="ss-badge">سوبر سيت ${it.ssGroup}</span><b>${esc(e.cat)} + ${pe?esc(pe.cat):""}</b><span class="ss-rest-note">بدون راحة بين التمرينين · الراحة بعد الزوج بس</span></div>`;
+      ssHead = `<div class="wk-ss-head"><span class="ss-badge">سوبر سيت ${it.ssGroup}</span><b>${esc(it.ssPairName || (e.cat + (pe? " + "+pe.cat : "")))}</b><span class="ss-rest-note">بدون راحة بين التمرينين · الراحة بعد الزوج بس</span></div>`;
     } else if(workout.superset && (!it.ssHasPair && it.ssPos==="A")){
       ssHead = `<div class="wk-ss-head"><span class="ss-badge">تمرين منفرد</span><b>${esc(e.cat)}</b><span class="ss-rest-note">آخر تمرين — العبه عادي</span></div>`;
     }
@@ -5531,10 +5732,11 @@ function renderWorkout(){
         <button class="done-btn${s.done?" done":""}" data-done="${ii}:${si}" type="button">${s.done?"✓ تم":"تم"}</button>
       </div>`).join("")}
       <button class="mini-btn" data-addset="${ii}" type="button" style="margin-top:9px">+ مجموعة</button>
+      <button class="mini-btn acc" data-saveone="${ii}" type="button" style="margin-top:9px">حفظ التمرين ده في السجل</button>
       </div>
     </div>`; }).join("")}
     ${(workout.stretch && workout.stretch.cd.length)? stretchBlockHTML("cd", workout.stretch.cd, workout.stretch.cdTitle || "تهدئة بعد ما تخلّص", workout.stretch.cdNote || "إطالات ثابتة للعضلات اللي اشتغلت — متكسلش عنها، هي سر استشفاء أسرع") : ""}
-    <button class="btn green block" id="finishWk" type="button" style="margin-top:18px">إنهاء التمرينة وحفظها في السجل</button>
+    <button class="btn green block" id="finishWk" type="button" style="margin-top:18px">حفظ كل اللي سجّلته في السجل (مش لازم تخلّص اليوم كله)</button>
     <button class="btn ghost block" id="skipWk" type="button" style="margin-top:10px">تخطي التمرين — روّح لخطوة رجّع الأوزان</button>
   </div>`;
   $("#discardWk").addEventListener("click", ()=>{ workout=null; renderWorkout(); renderHistory(); updateStats(); toast("اتلغت التمرينة"); });
@@ -5580,10 +5782,14 @@ function skipWorkout(){
   toast("تخطّيت التمرين — كمّل آخر خطوتين");
 }
 function finishWorkout(){
+  /* Any set with a weight or reps typed in counts as done — the user
+     does not have to tick «تم» on every set for the log to save, and
+     a partial workout (even one exercise) saves fine. */
+  workout.items.forEach(i=>i.sets.forEach(s=>{ if(!s.done && (String(s.w).trim()!=="" || String(s.r).trim()!=="")) s.done=true; }));
   const cdIds = (workout.stretch && workout.stretch.cd) ? workout.stretch.cd : [];
   const cdTitle = (workout.stretch && workout.stretch.cdTitle) ? workout.stretch.cdTitle : null;
   const doneSets = workout.items.flatMap(i=>i.sets).filter(s=>s.done).length;
-  if(!doneSets){ toast("علّم على مجموعة واحدة على الأقل «تم» قبل الإنهاء"); return; }
+  if(!doneSets){ toast("اكتب وزن أو عدّات أي مجموعة الأول وبعدين احفظ"); return; }
   const vol = workout.items.reduce((a,i)=>a + i.sets.reduce((x,s)=> x + (s.done? (parseFloat(s.w)||0)*(parseInt(s.r)||0) : 0),0),0);
   history.unshift({title:workout.title, date:new Date(), sets:doneSets, volume:Math.round(vol),
     detail: workout.items.map(i=>{ const e=exById(i.id); const d=i.sets.filter(s=>s.done); return d.length? `${e.n} (${e.en}): ${d.map(s=>`${s.w||0}كجم×${s.r||0}`).join("، ")}` : null; }).filter(Boolean)});
@@ -5615,12 +5821,10 @@ document.addEventListener("click", e=>{
   const v=e.target.closest("[data-video]"); if(v){ openExercise(v.dataset.video); return; }
   const a=e.target.closest("[data-addone]"); if(a){ closeSheet(); addExerciseToWorkout(a.dataset.addone); return; }
   const sd=e.target.closest("[data-startday]"); if(sd){ const [s,d]=sd.dataset.startday.split(":"); startDay(s, +d); return; }
+  const sst=e.target.closest("[data-sstoggle]"); if(sst){ const [ssid, sdi]=sst.dataset.sstoggle.split(":"); const k=ssid+":"+sdi; daySuperset[k]=!daySuperset[k]; refreshSystemDays(ssid); toast(daySuperset[k] ? "اتفعّل السوبر سيت لليوم ده — A1 + A2 من غير راحة، والراحة 90–120 ثانية بعد كل زوج" : "رجع اليوم للوضع العادي"); return; }
   const fd=e.target.closest("[data-freeday]"); if(fd){ const [s,d]=fd.dataset.freeday.split(":"); startDay(s, +d, null, true); toast("نسخة حرة: كل تمرين ليه بديل بوزن الجسم اتبدّل بيه — واللي ملوش بديل فضل زي ما هو"); return; }
-  const st=e.target.closest("[data-start]"); if(st){ const [s,d,id]=st.dataset.start.split(":");
-    if(workout && workout.title.includes(SYSTEMS.find(x=>x.id===s).name) && workout.items.some(i=>i.id===id)){ go("workout"); }
-    else if(workout && workout.items.length && !workout.title.startsWith(SYSTEMS.find(x=>x.id===s).name)){ addExerciseToWorkout(id); }
-    else startDay(s, +d, id);
-    return; }
+  const st=e.target.closest("[data-start]"); if(st){ const [s,d,id]=st.dataset.start.split(":"); quickLog(s, +d, id); return; }
+  const so=e.target.closest("[data-saveone]"); if(so){ saveOneExercise(+so.dataset.saveone); return; }
   const dn=e.target.closest("[data-done]"); if(dn){ const [i,s]=dn.dataset.done.split(":").map(Number);
     workout.items[i].sets[s].done = !workout.items[i].sets[s].done;
     if(workout.items[i].sets[s].done){
@@ -5642,7 +5846,7 @@ document.addEventListener("input", e=>{
   if(w){ const [i,s]=w.dataset.w.split(":").map(Number); workout.items[i].sets[s].w=w.value; }
   if(r){ const [i,s]=r.dataset.r.split(":").map(Number); workout.items[i].sets[s].r=r.value; }
 });
-$("#heroStart").addEventListener("click", ()=>{ if(workout && workout.items.length){ go("workout"); } else { go("systems"); toast("اختار نظام ودوس «ابدأ اليوم كله»"); } });
+$("#heroStart").addEventListener("click", ()=>{ if(workout && workout.items.length){ go("workout"); } else { go("systems"); toast("اختار نظام ودوس «سجّل الوزن والعدّات» على أي تمرين — أو «ابدأ اليوم كله»"); } });
 renderWorkout(); renderHistory(); updateStats();
 
 /* ---------- REST TIMER ---------- */
