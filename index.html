@@ -280,6 +280,22 @@
   .ss-split-day h4{margin:0 0 10px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:1.02rem; font-weight:900}
   .rest-day{border:1.5px dashed var(--accent); border-radius:14px; padding:14px; text-align:center; background:var(--accent-soft); margin-bottom:14px}
   .rest-day b{font-size:1.05rem}
+  /* Eslam Split day picker — the days sit at the TOP of the split so any
+     day's workout can be opened and played whatever today's weekday is
+     (e.g. Saturday's workout on a Sunday when Saturday was missed). The
+     bar sticks while scrolling the split; today's scheduled day is
+     marked, but every day stays tappable. */
+  .day-nav{position:sticky; top:6px; z-index:30; background:var(--card); border:1.5px solid var(--accent); border-radius:14px; padding:10px 10px 9px; margin-bottom:14px; box-shadow:var(--shadow)}
+  .day-nav-title{font-size:.83rem; font-weight:900; text-align:center; margin-bottom:8px}
+  .day-nav-btns{display:flex; gap:6px; flex-wrap:wrap; justify-content:center}
+  .day-nav-btns button{flex:1 1 22%; font-family:inherit; background:var(--card2); border:1px solid var(--line); color:var(--ink); border-radius:999px; padding:7px 6px; font-weight:800; font-size:.79rem; min-height:40px; cursor:pointer}
+  .day-nav-btns button.today{border-color:var(--accent); background:var(--accent-soft)}
+  .today-tag{display:inline-block; background:var(--accent); color:#fff; font-size:.63rem; font-weight:900; border-radius:99px; padding:1px 7px; margin-inline-start:5px; vertical-align:middle}
+  @media (prefers-color-scheme: dark){ .today-tag{color:#241703} }
+  [data-dayanchor]{scroll-margin-top:150px}
+  .day-flash{border-radius:14px; animation:dayflash 1.8s ease}
+  @keyframes dayflash{0%,55%{box-shadow:0 0 0 3px var(--accent)}100%{box-shadow:0 0 0 0 transparent}}
+  @media (prefers-reduced-motion: reduce){ .day-flash{animation:none; box-shadow:0 0 0 3px var(--accent)} }
   .vip-sec{margin-top:16px; border-top:1px dashed var(--line); padding-top:14px}
   .vip-sec h4{margin:0 0 8px; font-weight:900; font-size:1rem}
   .vip-sec ul{margin:0; padding-inline-start:18px}
@@ -3392,7 +3408,7 @@ function coreFinHTML(sys, day, di){
 }
 function dayHTML(sys, day, di){
   if(day.restDay){
-    return `<div class="rest-day"><b>${esc(day.t)}</b><div class="small muted">يوم راحة واستشفاء — مفيش تمرين. أيام الراحة جزء من الخطة، خدها حتى لو حاسس إنك كويس.</div></div>`;
+    return `<div class="rest-day" data-dayanchor="${sys.id}:${di}"><b>${esc(day.t)}</b><div class="small muted">يوم راحة واستشفاء — مفيش تمرين. أيام الراحة جزء من الخطة، خدها حتى لو حاسس إنك كويس.</div></div>`;
   }
   /* A day renders as superset pairs when Hero Mode's global switch is
      on for its system, OR when the day's own toggle button was used.
@@ -3423,13 +3439,34 @@ function dayHTML(sys, day, di){
   const wuNote = wuKindNote(wuKind);
   const cdTitle = "بعد التمرين — إطالات ثابتة للعضلات اللي اشتغلت";
   const cdNote = "اثبت في كل إطالة واتنفس بهدوء — بتخفف الشد ووجع تاني يوم";
-  return `<div class="day"><h4>${esc(day.t)}${useSS?` <span class="ss-badge">${sys.forceSS?"سوبر سيت إجباري":"وضع السوبر سيت شغّال"}</span>`:""}
+  return `<div class="day" data-dayanchor="${sys.id}:${di}"><h4>${esc(day.t)}${useSS?` <span class="ss-badge">${sys.forceSS?"سوبر سيت إجباري":"وضع السوبر سيت شغّال"}</span>`:""}
     <button class="mini-btn acc" data-startday="${sys.id}:${di}" type="button" style="margin-inline-start:auto">${useSS?"ابدأ اليوم كله — سوبر سيت":"ابدأ اليوم كله"}</button>
     <button class="mini-btn" data-freeday="${sys.id}:${di}" type="button">العب اليوم بالبدائل الحرة</button>
     ${sys.forceSS?`<span class="ss-badge">سوبر سيت — بدون خيار عادي</span>`:`<button class="ss-toggle-btn${useSS?" on":""}" data-sstoggle="${sys.id}:${di}" type="button">${useSS?"سوبر سيت — بدّل للعادي":"عادي — بدّل لسوبر سيت"}</button>`}</h4>${stretchBlockHTML("wu", dayWarmup(sys, day, di), wuTitle, wuNote)}${rows}${coreFinHTML(sys, day, di)}${stretchBlockHTML("cd", dayCooldown(sys, day, di), cdTitle, cdNote)}</div>`;
 }
+/* Day picker rendered at the TOP of the Eslam Split (user direction
+   2026-11-23): one pill per plan entry — training days and rest days —
+   labelled with its weekday. Tapping a pill jumps straight to that
+   day's workout below, so any day can be trained on any weekday (e.g.
+   Saturday's session played on Sunday). The pill matching today's
+   weekday is highlighted and tagged «النهارده», but nothing is locked
+   to it — every day stays reachable. */
+function dayNavHTML(sys){
+  const wdNames=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+  const todayName=wdNames[new Date().getDay()];
+  let n=0;
+  const btns=sys.plan.map((d,di)=>{
+    const m=/\(([^)]+)\)/.exec(d.t||"");
+    const wd=m?m[1]:"";
+    const label=d.restDay?("راحة · "+wd):("اليوم "+(++n)+" · "+wd);
+    const isToday=wd===todayName;
+    return `<button type="button" data-dayjump="${sys.id}:${di}"${isToday?' class="today"':""}>${esc(label)}${isToday?'<span class="today-tag">النهارده</span>':""}</button>`;
+  }).join("");
+  return `<div class="day-nav"><div class="day-nav-title">اختار يوم التمرينة — الأيام كلها فوق، والعب أي يوم مهما كان النهارده إيه</div><div class="day-nav-btns">${btns}</div></div>`;
+}
 function sysDaysHTML(sys){
-  return sys.plan.map((d,di)=>dayHTML(sys,d,di)).join("") + (sys.vip? vipExtraHTML():"");
+  const nav = sys.id==="eslam" ? dayNavHTML(sys) : "";
+  return nav + sys.plan.map((d,di)=>dayHTML(sys,d,di)).join("") + (sys.vip? vipExtraHTML():"");
 }
 const SYS_COLORS = ["#c47b12","#2f7fc1","#2e9e6b","#cf4b38","#0e9594","#dd6f1f","#b8860b"];
 function sysCard(sys, openFirst, idx){
@@ -3466,6 +3503,17 @@ $("#homeSystems").innerHTML = SYSTEMS.slice(0,3).map((s,i)=>sysCard(s,false,i)).
 document.addEventListener("click", e=>{
   const head = e.target.closest(".sys-head");
   if(head){ const card=head.closest(".sys-card"); card.classList.toggle("open"); head.setAttribute("aria-expanded", card.classList.contains("open")); }
+});
+/* Day-picker jumps (Eslam Split): scroll to the chosen day's section
+   and flash it, whatever today's weekday is. */
+document.addEventListener("click", e=>{
+  const j=e.target.closest("[data-dayjump]"); if(!j) return;
+  const target=document.querySelector(`[data-dayanchor="${j.dataset.dayjump}"]`);
+  if(!target) return;
+  const reduce=window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  target.scrollIntoView({behavior:reduce?"auto":"smooth", block:"start"});
+  target.classList.remove("day-flash"); void target.offsetWidth; target.classList.add("day-flash");
+  setTimeout(()=>target.classList.remove("day-flash"), 1900);
 });
 
 /* ---------- EXERCISE LIBRARY ---------- */
