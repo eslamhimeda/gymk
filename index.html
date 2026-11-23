@@ -19,6 +19,13 @@
 <style>
   :root{
     --host-banner-h:0px;
+    /* Sticky offsets, measured at runtime by the sticky-offset script at
+       the end of the page: the real height of the sticky header stack
+       (.top-stack) and of the Eslam day-picker bar while it is open.
+       The fallbacks match the measured desktop header (~124px) so the
+       day bar clears the header even before the script runs. */
+    --top-stack-h:124px;
+    --day-nav-h:24px;
     /* LIGHT THEME — dark is reserved for the main headlines ONLY.
        --headline is the one dark colour in the app, used exclusively
        by the main section titles / large headings (.sec-title, the
@@ -284,15 +291,22 @@
      day's workout can be opened and played whatever today's weekday is
      (e.g. Saturday's workout on a Sunday when Saturday was missed). The
      bar sticks while scrolling the split; today's scheduled day is
-     marked, but every day stays tappable. */
-  .day-nav{position:sticky; top:6px; z-index:30; background:var(--card); border:1.5px solid var(--accent); border-radius:14px; padding:10px 10px 9px; margin-bottom:14px; box-shadow:var(--shadow)}
+     marked, but every day stays tappable. Its sticky top offset is NOT
+     a bare 6px: the sticky header stack (.top-stack, ~124px tall) sits
+     above it at z-index 70, so a 6px offset slid the bar UNDER the
+     header where its pills could not be tapped. The offset is the
+     measured header height (--top-stack-h, set by the sticky-offset
+     script at the end of the page) plus an 8px gap, so the bar parks
+     directly under the header and stays fully tappable at any scroll
+     position, on desktop and mobile alike. */
+  .day-nav{position:sticky; top:calc(var(--top-stack-h) + 8px); z-index:30; background:var(--card); border:1.5px solid var(--accent); border-radius:14px; padding:10px 10px 9px; margin-bottom:14px; box-shadow:var(--shadow)}
   .day-nav-title{font-size:.83rem; font-weight:900; text-align:center; margin-bottom:8px}
   .day-nav-btns{display:flex; gap:6px; flex-wrap:wrap; justify-content:center}
   .day-nav-btns button{flex:1 1 22%; font-family:inherit; background:var(--card2); border:1px solid var(--line); color:var(--ink); border-radius:999px; padding:7px 6px; font-weight:800; font-size:.79rem; min-height:40px; cursor:pointer}
   .day-nav-btns button.today{border-color:var(--accent); background:var(--accent-soft)}
   .today-tag{display:inline-block; background:var(--accent); color:#fff; font-size:.63rem; font-weight:900; border-radius:99px; padding:1px 7px; margin-inline-start:5px; vertical-align:middle}
   @media (prefers-color-scheme: dark){ .today-tag{color:#241703} }
-  [data-dayanchor]{scroll-margin-top:150px}
+  [data-dayanchor]{scroll-margin-top:calc(var(--top-stack-h) + var(--day-nav-h) + 16px)}
   .day-flash{border-radius:14px; animation:dayflash 1.8s ease}
   @keyframes dayflash{0%,55%{box-shadow:0 0 0 3px var(--accent)}100%{box-shadow:0 0 0 0 transparent}}
   @media (prefers-reduced-motion: reduce){ .day-flash{animation:none; box-shadow:0 0 0 3px var(--accent)} }
@@ -6487,6 +6501,44 @@ if("serviceWorker" in navigator){
   });
 }
 document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeSheet(); $("#installSheet").classList.remove("show"); } });
+
+/* ---------- STICKY OFFSETS (header height → day-picker bar) ---------- */
+/* The Eslam Split day-picker bar (.day-nav) is sticky, but the header
+   stack (.top-stack) is sticky too and ~124px tall: with a fixed small
+   top offset the bar slid underneath the header while scrolling and
+   its pills could not be tapped until the page was scrolled back to
+   the very top. Measure the real header height (it differs between
+   desktop and phone widths) and publish it as --top-stack-h; the bar's
+   sticky top and the day anchors' scroll-margin are built from it in
+   CSS. --day-nav-h tracks the bar's own height while it is open so a
+   pill jump lands the day heading below BOTH sticky bars. */
+(function(){
+  var root = document.documentElement;
+  function measure(){
+    var stack = document.querySelector(".top-stack");
+    if(stack && stack.offsetHeight > 0) root.style.setProperty("--top-stack-h", stack.offsetHeight + "px");
+    var navs = document.querySelectorAll(".day-nav");
+    for(var i=0;i<navs.length;i++){
+      if(navs[i].offsetHeight > 0){ root.style.setProperty("--day-nav-h", navs[i].offsetHeight + "px"); break; }
+    }
+  }
+  window.__measureSticky = measure;
+  measure();
+  window.addEventListener("load", measure);
+  window.addEventListener("resize", measure);
+  var tries = 0;
+  var iv = setInterval(function(){ measure(); if(++tries > 12) clearInterval(iv); }, 400);
+  /* Opening/closing a system card (or tapping a day pill) changes the
+     bar's layout — re-measure once the toggle has taken effect. The
+     card-toggle listener is registered earlier in this script, so by
+     the time this one runs the new state is already in the DOM. */
+  document.addEventListener("click", function(e){
+    if(e.target.closest && (e.target.closest(".sys-head") || e.target.closest("[data-dayjump]"))){
+      requestAnimationFrame(measure);
+      setTimeout(measure, 120);
+    }
+  });
+})();
 
 /* ---------- HOST BANNER (tiiny.host free bar) ---------- */
 /* The free hosting injects a fixed bar at the very bottom of the page.
